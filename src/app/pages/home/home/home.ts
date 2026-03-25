@@ -56,12 +56,12 @@ export interface HomeCursoCard {
   localidad_principal?: string;
   origen: Origen;
   formulario: string;
-  slug?: string; // ✅ nuevo (solo 2026 por ahora)
+  slug?: string;
 
   // UI meta
   cupos?: number | null;
-  inscripcion_inicio?: string; // normalizado "YYYY-MM-DDTHH:mm"
-  inscripcion_fin?: string; // normalizado "YYYY-MM-DDTHH:mm"
+  inscripcion_inicio?: string;
+  inscripcion_fin?: string;
 }
 
 @Component({
@@ -85,11 +85,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   eagerCount = 6;
 
-  // ✅ aviso temporal para 2026
-  ocultarCursos2026 = true;
-  mensajeAvisoCursos2026 = 'Los cursos salen mañana a las 8:00 de la mañana.';
-  mostrarModalAviso2026 = false;
-
   private resizeObs!: ResizeObserver;
   private domObs?: MutationObserver;
 
@@ -111,22 +106,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     requestAnimationFrame(() => this.throttledUpdateScrollBtnPos());
   }
 
-  // ✅ helpers para el aviso 2026
-  get mostrarBloqueAviso2026(): boolean {
-    return this.selectedYear === '2026' && this.ocultarCursos2026;
-  }
-
-  abrirAvisoCursos2026(): void {
-    this.mostrarModalAviso2026 = true;
-  }
-
-  cerrarAvisoCursos2026(): void {
-    this.mostrarModalAviso2026 = false;
-  }
-
   // ───────────────────────── helpers/throttle/settle ─────────────────────────
 
-  // ✅ FIX: throttle sin crash (el error de lastArgs null)
   private throttle<T extends (...args: any[]) => void>(fn: T, wait = 120) {
     let last = 0;
     let timer: any = null;
@@ -247,7 +228,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // ───────────────────────── fechas: normalización + formato ─────────────────
 
   /**
-   * ✅ Normaliza a "YYYY-MM-DDTHH:mm" (como 2025)
+   * Normaliza a "YYYY-MM-DDTHH:mm"
    * - "2026-02-18" -> "2026-02-18T00:00"
    * - "2026-02-18T14:00:33" -> "2026-02-18T14:00"
    * - "2026-02-18T14:00Z" -> "2026-02-18T14:00"
@@ -262,11 +243,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const m = /^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})/.exec(v);
     if (m) return `${m[1]}T${m[2]}:${m[3]}`;
 
-    // soporta "YYYY-MM-DD HH:mm"
     const m2 = /^(\d{4}-\d{2}-\d{2})\s+(\d{2}):(\d{2})/.exec(v);
     if (m2) return `${m2[1]}T${m2[2]}:${m2[3]}`;
 
-    // si viene con segundos: cortamos
     const m3 = /^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})/.exec(v);
     if (m3) return m3[1];
 
@@ -274,7 +253,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   /**
-   * ✅ Formatea:
+   * Formatea:
    * - "YYYY-MM-DD" -> "dd/MM/yyyy"
    * - "YYYY-MM-DDTHH:mm" -> "dd/MM/yyyy, HH:mm"
    */
@@ -298,7 +277,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return ddmmyyyy;
   }
 
-  // Fecha ISO (date o datetime) -> timestamp local (sin bug UTC)
+  // Fecha ISO (date o datetime) -> timestamp local
   private parseIsoLocalDate(iso?: string | null): number {
     if (!iso) return NaN;
     const base = String(iso).trim().split('T')[0];
@@ -327,7 +306,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private loadCursos2024(): void {
     this.loading = true;
-    this.mostrarModalAviso2026 = false;
 
     this.cursoService.getCursos().subscribe({
       next: (cursos: Curso[]) => {
@@ -346,7 +324,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private loadCursos2025(): void {
     this.loading = true;
-    this.mostrarModalAviso2026 = false;
 
     const svc: any = this.cursoService as any;
 
@@ -375,7 +352,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  // ✅ 2026 desde API del backend (público)
   private loadCursos2026(): void {
     this.loading = true;
     const svc: any = this.cursoService as any;
@@ -386,7 +362,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loading = false;
     };
 
-    // si algún día agregás método en CursoService, lo usa
     if (typeof svc.getCursos2026 === 'function') {
       svc.getCursos2026().subscribe({
         next: (cursos: Curso2026[]) => handleData(cursos),
@@ -398,7 +373,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    // fallback directo (proxy /api -> backend)
     fetch('/api/courses/2026')
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((data: Curso2026[]) => handleData(data))
@@ -408,25 +382,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       });
   }
 
-  // ✅ recarga siempre (así al apretar el año vuelve a pedir)
   setYear(y: Origen): void {
     this.selectedYear = y;
     this.localidadesUnicas = [];
     this.localidadSeleccionada = '';
-
-    // ✅ bloqueo temporal solo para 2026
-    if (y === '2026' && this.ocultarCursos2026) {
-      this.cursosCards = [];
-      this.loading = false;
-      this.mostrarModalAviso2026 = false;
-
-      requestAnimationFrame(() => {
-        this.throttledUpdateScrollBtnPos();
-        setTimeout(() => this.throttledUpdateScrollBtnPos(), 120);
-      });
-
-      return;
-    }
 
     if (y === '2024') this.loadCursos2024();
     else if (y === '2025') this.loadCursos2025();
@@ -569,7 +528,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const aNum = typeof aId === 'number' ? aId : Number.NaN;
     const bNum = typeof bId === 'number' ? bId : Number.NaN;
     if (Number.isFinite(aNum) && Number.isFinite(bNum)) return bNum - aNum;
-    return String(bId).localeCompare(String(aId)); // desc
+    return String(bId).localeCompare(String(aId));
   }
 
   private applyCards(cards: HomeCursoCard[]): void {

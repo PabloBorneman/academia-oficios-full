@@ -161,7 +161,7 @@
       </button>
     </div>
 
-    <div class="filtro-con-mensaje" *ngIf="!mostrarBloqueAviso2026">
+    <div class="filtro-con-mensaje">
       <label class="label-localidad" for="filtro-localidad">
         Seleccioná tu localidad
       </label>
@@ -179,26 +179,8 @@
     </div>
   </div>
 
-  <!-- Aviso 2026 -->
-  <div class="aviso-cursos-2026" *ngIf="mostrarBloqueAviso2026">
-    <div class="aviso-cursos-2026__card">
-      <h3 class="aviso-cursos-2026__titulo">Próximamente</h3>
-      <p class="aviso-cursos-2026__texto">
-  Los cursos estarán disponibles <span class="resaltado">mañana a las 8:00</span>.
-</p>
-
-      <button
-        type="button"
-        class="aviso-cursos-2026__btn"
-        (click)="abrirAvisoCursos2026()"
-      >
-        Ver información
-      </button>
-    </div>
-  </div>
-
   <!-- Listado de cursos -->
-  <div class="cursos" *ngIf="!mostrarBloqueAviso2026">
+  <div class="cursos">
     <div
       class="curso-card"
       *ngFor="let curso of cursosFiltrados(); trackBy: trackById"
@@ -311,25 +293,6 @@
           </ng-container>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Modal aviso 2026 -->
-  <div
-    class="modal-backdrop"
-    *ngIf="mostrarModalAviso2026"
-    (click)="cerrarAvisoCursos2026()"
-  >
-    <div class="modal-box" (click)="$event.stopPropagation()">
-      <h3>Información importante</h3>
-      <p>{{ mensajeAvisoCursos2026 }}</p>
-      <button
-        type="button"
-        class="modal-btn"
-        (click)="cerrarAvisoCursos2026()"
-      >
-        Cerrar
-      </button>
     </div>
   </div>
 

@@ -1,1 +1,791 @@
-[]
+[
+  {
+    "id": "c7a4d101-8b6442",
+    "slug": "albanileria-para-mujeres-ii-la-quiaca",
+    "titulo": "Albañilería para Mujeres II – La Quiaca",
+    "descripcion_breve": "Es un curso de Formación completa, a continuación de Albañilería Básica I, en la cual se ve tareas más específicas, que direcciona a lograr terminar una vivienda, donde vas aprender el manejo y cálculo de materiales, Tipos de mampostería con distintos materiales, Tipos de mezclas. Tipos de Techos. Dinteles (colocación de aberturas), Revestimientos en Fachadas.",
+    "descripcion_completa": "Existe una demanda del poder femenino para insertarse en la industria de la construcción, personas que poseen conocimiento sobre el tema, para la edificacion de una vivienda o ampliación de las mismas, refacción, evitando el gasto en mano de obra y el buen uso de materiales.",
+    "actividades": "Se realizaran tareas prácticas, en campo, contacto con los materiales y edificación por etapas de obra. Reconocimiento de materiales, herramientas y cuidado del trabajador. Si la alumna tiene material en casa y quiere que empecemos ahi, se harán las prácticas; siempre apuntando al conocimiento y crecimiento de cada una de las participantes.",
+    "duracion_total": "2 meses",
+    "fecha_inicio": "2026-04-10",
+    "fecha_inicio_legible": "10 de abril",
+    "fecha_fin": "2026-05-29",
+    "fecha_fin_legible": "29 de mayo",
+    "frecuencia_semanal": 1,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Viernes de 08:30 a 11:30",
+      "Viernes de 12:30 a 15:30"
+    ],
+    "localidades": [
+      "La Quiaca"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Lápiz",
+        "Goma",
+        "Ropa de trabajo (fajina)",
+        "Cuchara",
+        "Metro",
+        "Tenaza",
+        "Plomada",
+        "Nivel de mano",
+        "Martillo",
+        "Balde"
+      ],
+      "entrega_curso": [
+        "Cartilla digital del docente",
+        "Link de ejemplos"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScP5qXjDb1dtAONlwL7uGxp-8KnvUZUPsEvb-yblqaNw9sRFw/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774417658645_c0a62375f619.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "9dc48288-029b8a",
+    "slug": "soldadura-artistica-la-quiaca",
+    "titulo": "Soldadura Artística – La Quiaca",
+    "descripcion_breve": "Nirmad de seguridad e higirne. Calibracio de mauina de soldar . Reforzamiento de lo trabajado en la parte I del curso. Tecnicas de forja, corte, acabados de soldadura, uniones. Soldadura en material liviano. Construccion de objetos combinando diferentes tipod de espesores de materiales soldables.",
+    "descripcion_completa": "El taller terminará por mejorar las técnicas de soldadura, desarrollará habilidades para poder realizar cualquier tipo de trabajo de soldadura. Seguridad e higiene en el trabajo",
+    "actividades": "Practicas de los distintos tipos y posiciones de soldadura. Tipos de corte y union de materiales estructurales. Normas de seguridad",
+    "duracion_total": "2 mes",
+    "fecha_inicio": "2026-04-09",
+    "fecha_inicio_legible": "9 de abril",
+    "fecha_fin": "2026-05-29",
+    "fecha_fin_legible": "29 de mayo",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Se informa"
+    ],
+    "localidades": [
+      "La Quiaca"
+    ],
+    "direcciones": [
+      "A confirmar con el municipio"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera"
+      ],
+      "entrega_curso": [
+        "Material de lectura"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSeYcTRaIfdcl7gGymtXI004i0WHrjV3-XZpBVz25AWd92OPIg/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774417698261_d9309ffa7756.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "ba15a738-3a0879",
+    "slug": "ayudante-de-cocina-en-hoteleria-la-quiaca",
+    "titulo": "Ayudante de Cocina en Hotelería – La Quiaca",
+    "descripcion_breve": "Formación Técnica Básica Culinaria teniendo en cuenta la seguridad alimentaria, el uso de materia prima de la región y productos andinos, alimentación saludable y presentación profesional en los emplatados.",
+    "descripcion_completa": "La formación busca formar a personas que voluntaria y conscientemente quieran capacitarse en las diferentes técnicas culinarias, enfoque aplicado gradual y contextualizado para fortalecer capacidades tanto técnicas como culturales, revalorizando todos y cada uno de los ingredientes de los diferentes platos. Egresarán Ayudantes de Cocina altamente capacitados para desempeñarse en entornos hoteleros, restaurantes o emprendimientos gastronómicos, con un importante nivel de calidad en las elaboraciones como presentación, con una mirada regional e integradora.",
+    "actividades": "La formación girará en los siguientes ejes:  Seguridad alimentaria: Prevención de riesgos sanitarios, buenas prácticas de higiene y manipulación.  Materia prima andina y de la región: Valoración cultural y nutricional de ingredientes locales como quinoa, papa andina, maíz morado y ajíes nativos; frutas y verduras de cultivo local e hierbas aromáticas de nuestra tierra (rica rica, chachacoma, albahaca, muña muña, etc.)  Alimentación saludable: Técnicas culinarias que preservan nutrientes, adaptadas a diferentes contextos y necesidades alimentarias.  Presentación y emplatado: Herramientas básicas de estética culinaria, emplatado creativo, y estándares visuales del ámbito hotelero.  Mapa de Sabores: Sabores vinculados según materia prima.",
+    "duracion_total": "2 Meses",
+    "fecha_inicio": "2026-04-10",
+    "fecha_inicio_legible": "10 de abril",
+    "fecha_fin": "2026-05-29",
+    "fecha_fin_legible": "29 de mayo",
+    "frecuencia_semanal": 1,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Viernes de 08:30 a 11:30",
+      "Viernes de 12:30 a 15:30"
+    ],
+    "localidades": [
+      "La Quiaca"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Delantal o Chaqueta,",
+        "Cofia o Gorro,",
+        "Guante para horno (optativo),",
+        "Cuchillos (de corte varios no sierrita),",
+        "Cuchara,",
+        "Cucharilla,",
+        "Cucharas de madera,",
+        "Tenedor,",
+        "Olla chica,",
+        "Bowls (de plástico o de metal),",
+        "Sartén,",
+        "Balanza (optativo),",
+        "Palillos de brochet,",
+        "Repasador,",
+        "Plato para emplatar,",
+        "Mantel individual,",
+        "Pelapapas (optativo),",
+        "Lapicera,",
+        "Cuaderno,",
+        "Pinzas de Cocina (plástico o metal),",
+        "Taza (de plástico o metal),",
+        "Hierbas,",
+        "Condimentos y especias,",
+        "Aceite,",
+        "Sal Gruesa y Fina,",
+        "Detergente para lavado de herramientas,",
+        "Materia Prima según elaboración."
+      ],
+      "entrega_curso": [
+        "Receta digital de Preparaciones e Instrucción."
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSfqNIYTkPP-uYPsGcQ7pREhlYpX5EDcfpn7H1ulU3lZSfAp_g/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774417798722_98a6ab87541f.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "31e546db-2f0263",
+    "slug": "electricidad-domiciliaria-abra-pampa",
+    "titulo": "Electricidad Domiciliaria – Abra Pampa",
+    "descripcion_breve": "Conceptos generales- Principales leyes electricas- Cálculos- Normas vigentes- Seguridad- Nomenclaturas- Simbologia- Empalmes- Tipos de Circuitos: serie, paralelo y mixto- Instrumentos de medición- Ejecucion de Circuitos y Calculos de elementos- Puesta en tablero de pruebas con elementos electricos mas comunes.",
+    "descripcion_completa": "Como objetivo principal los participantes podran identificar todos los elementos que componen un circuito electrico ya sean materiales o logicos, uso de herramientas afines, y seguridad correspondiente, desarrollo de calculos de los elementos del circuito,uso de instrumentación .",
+    "actividades": "- puesta en práctica de las leyes mas importantes - - empleo de técnicas y herramientas- - tipos de union o empalmes - simulación de circuitos electricos y calculos manuales y con instrumentación - lectura de planos y reconocimiento de elementos de un circuito",
+    "duracion_total": "2 mes",
+    "fecha_inicio": "2026-04-08",
+    "fecha_inicio_legible": "8 de abril",
+    "fecha_fin": "2026-05-29",
+    "fecha_fin_legible": "29 de mayo",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      2
+    ],
+    "dias_horarios": [
+      "Miércoles de 09:00 a 11:00",
+      "Viernes de 09:00 a 11:00"
+    ],
+    "localidades": [
+      "Abra Pampa"
+    ],
+    "direcciones": [
+      "Sarmiento Esquina Bustamante"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "EPP",
+        "Herramientas (en caso de contar con ellas)"
+      ],
+      "entrega_curso": [
+        "Soporte teórico y práctico"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScIXTxKZ32oQAGVc2qTQXZSKX25xIl17qO6yyPcS8aWXuMXCQ/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774417939736_b4d1ea49f3d2.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "97691ff3-56ed45",
+    "slug": "soldadura-basica-pumahuasi",
+    "titulo": "Soldadura Básica – Pumahuasi",
+    "descripcion_breve": "Normas de deguridad e higiene, tecnicas operativas de trabajo, requerimientos y calibracion maquinas, tipos de electrodos, tipos de soldadura y cordones, posiciines de soldar, medicio y corte, parctica de soldadura fabricando objetos diversos",
+    "descripcion_completa": "En el taller adquirirán habilidades de trazado y corte, forma correcta de hacer cordones de soldadura, posición al soldar,",
+    "actividades": "Practica de soldadura con materiales macizos de diferentes espesores, practicas de corte y union, preparación de material a soldar, reconocimiento de maquina y calibración de maquina de soldar",
+    "duracion_total": "8 semanas (16 encuentros)",
+    "fecha_inicio": "2026-04-07",
+    "fecha_inicio_legible": "7 de abril",
+    "fecha_fin": "2026-05-26",
+    "fecha_fin_legible": "26 de mayo",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Martes de 19:00 a 22:00",
+      "Jueves de 18:30 a 21:30"
+    ],
+    "localidades": [
+      "Pumahuasi"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera"
+      ],
+      "entrega_curso": [
+        "Material bibliográfico"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScWnqRaAFDRzZZ6y2hz4n-W4u7Kf2TX9hUO3Tj__QLWH3fwsA/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418021254_e6ccc089415e.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "1327441d-77e91f",
+    "slug": "electricidad-domiciliaria-tres-cruces",
+    "titulo": "Electricidad Domiciliaria – Tres Cruces",
+    "descripcion_breve": "Taller de electricidad: normas de seguridad. Normas vigentes normalizadas en las instalaciones eléctricas, energia, tipos de energias, leyes principales y resolución de ejercicios. Empalmes. Circuitos serie, paralelo y mixto . Practicas de circuitos y cálculos. Uso de elemntos de medicion. Realización de tableros de prueba.",
+    "descripcion_completa": "En el taller los participantes aprenderán a instalar de manera segura y correcta, cada uno de los elementos que se utilizan en las instalaciones electricas domiciliarias e industriales, a detectar fallas y posterior reparación.",
+    "actividades": "Se realizara un tablero de pruebas con todos los elementos correspondientes a cada tipo de instalación, y circuitos. practicas de empalmes . Prácticas de cálculos de leyes de electricidad .",
+    "duracion_total": "2 Meses",
+    "fecha_inicio": "2026-04-06",
+    "fecha_inicio_legible": "6 de abril",
+    "fecha_fin": "2026-05-26",
+    "fecha_fin_legible": "26 de mayo",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Lunes de 09:00 a 12:00",
+      "Martes de 15:00 a 18:00"
+    ],
+    "localidades": [
+      "Tres Cruces"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapiceras de colores",
+        "Regla"
+      ],
+      "entrega_curso": [
+        "Todo lo necesario para prácticas"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSez7a-tQiZerLWKkZlTs2VO1g8niUFSYnGnlLwx2ctmcphH7Q/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418154967_8ca0744ef784.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "19720c88-4e9ac2",
+    "slug": "operador-de-maquina-pesada-tilcara",
+    "titulo": "Operador de Máquina Pesada – Tilcara",
+    "descripcion_breve": "Capacitación para poder desempeñarse como operador en maquinas pesadas",
+    "descripcion_completa": "El curso está dirigido al público en general que quiera desempeñarse como operador e máquinas pesada. En el mismo se va aprender principalmente a operar, mantener y trabajar con equipos grandes usados en construcción, minería y obras viales. Siempre considerando las normas de seguridad.",
+    "actividades": "El curso será teórico práctico una vez vista la teoría se procede a materializar lo teórico que consiste en: Mantenimiento básico, revisar los fluidos de la máquina, detectar fallas comunes y el cuidado general de la máquina. Técnicas de trabajo que consiste en movimiento de tierras, nivelación de terrenos, excavación y carga de materiales",
+    "duracion_total": "2 mes",
+    "fecha_inicio": "2026-04-08",
+    "fecha_inicio_legible": "8 de abril",
+    "fecha_fin": "2026-05-28",
+    "fecha_fin_legible": "28 de mayo",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      4
+    ],
+    "dias_horarios": [
+      "Miércoles de 15:00 a 19:00",
+      "Jueves de 08:00 a 12:00"
+    ],
+    "localidades": [
+      "Tilcara"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": true,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Elementos de protección personal"
+      ],
+      "entrega_curso": []
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSdD9CDJ761x69gIjznykSdjmEB_eQlQIJ4pqv0P8HdBSFQptA/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418253066_8d35c873007c.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "ddbeb91c-93708a",
+    "slug": "soldadura-basica-y-manejo-de-herramientas-tilcara",
+    "titulo": "Soldadura Básica y Manejo de Herramientas – Tilcara",
+    "descripcion_breve": "Este curso permite que los alumnos puedan tener alternativas laborales en la industria ( sabiendo lo básico de soldadura y manejo de herramientas) , como operario, y así también el auto -empleo dónde pdra satisfacer las necesidades de una comunidad (portones , fabricación de muebles y reparación en general, ect.)",
+    "descripcion_completa": "Este curso está destinado a personas de ambos sexo, dónde se capacitara para el rubro de la industria metalúrgica y el auto empleo las actividades a realizar son : uniones entre piezas metálicas, utilizando técnicas de trazado - corte y posicionamiento de piezas a unir utilizando equipos especifico para cada tarea ( herramientas manuales - amoladora - taladro - soldadora)",
+    "actividades": "1-conocimientos básicos de dibujo técnico, 2- interpretación de plano, 3 -tecnica para manejo de herramientas electrónica y manuales, 4-tecnica de trazado y cortes 5-tecnica para procedimiento de armado de unión de piezas metálicas 6- técnica de movimientos y angulo de movimiento 7-tecnica de procedimiento de piezas terminada ( debaste y pulido)",
+    "duracion_total": "3 meses",
+    "fecha_inicio": "2026-04-06",
+    "fecha_inicio_legible": "6 de abril",
+    "fecha_fin": "2026-06-30",
+    "fecha_fin_legible": "30 de junio",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Lunes de 15:00 a 18:00",
+      "Martes de 15:00 a 18:00"
+    ],
+    "localidades": [
+      "Tilcara"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Celular",
+        "Guantes",
+        "Gafas de seguridad"
+      ],
+      "entrega_curso": [
+        "Herramientas manuales (punta de trazar, escuadras, máscara de soldar)",
+        "Máquinas herramientas (taladro, amoladora y soldadora)"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSdetaxWzWccn3boax6xH_JLurNQZLK7mW3kpInUITwwL-SWuQ/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418383713_85621217962d.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "e766ef82-c14b52",
+    "slug": "operacion-segura-de-hidrogruas-e-hidroelevadores-maimara",
+    "titulo": "Operación Segura de Hidrogrúas e Hidroelevadores – Maimará",
+    "descripcion_breve": "Capacitación teórico-práctica en operación segura de hidrogrúas e hidroelevadores, con enfoque en seguridad laboral y uso responsable de equipos.",
+    "descripcion_completa": "El curso está dirigido a jóvenes y adultos que deseen formarse en la operación y mantenimiento de hidrogrúas e hidroelevadores. A lo largo de la capacitación, los participantes aprenderán a utilizar correctamente los equipos de izaje, aplicar normas de seguridad, identificar riesgos y manejar elementos de protección personal (EPP). La propuesta combina teoría y práctica para brindar herramientas sólidas que mejoren la empleabilidad en el ámbito laboral e industrial.",
+    "actividades": "Clases teóricas dinámicas sobre seguridad y normativa. ✔ Presentación de componentes y funciones de los equipos. ✔ Demostración y práctica con elementos de protección personal. ✔ Ejercicios prácticos supervisados con maquinaria. ✔ Evaluación teórico-práctica final",
+    "duracion_total": "3 Mes",
+    "fecha_inicio": "2026-04-07",
+    "fecha_inicio_legible": "7 de abril",
+    "fecha_fin": "2026-06-25",
+    "fecha_fin_legible": "25 de junio",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Martes de 18:00 a 21:00",
+      "Jueves de 18:00 a 21:00"
+    ],
+    "localidades": [
+      "Maimará"
+    ],
+    "direcciones": [
+      "A definir"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": true,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Teléfono (para ver material didáctico)"
+      ],
+      "entrega_curso": [
+        "Cartillas de apoyo para el aprendizaje"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSfX0g-yjyzMKFX5xPW3HbiCT3TAapMmsvE2w-xYp28pD4Kcxg/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418474472_44aa7247861d.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "e04001fa-4fcbce",
+    "slug": "operador-de-maquina-pesada-purmamarca",
+    "titulo": "Operador de Máquina Pesada – Purmamarca",
+    "descripcion_breve": "Capacitación para poder desempeñarse como operador en maquinas pesadas",
+    "descripcion_completa": "El curso está dirigido al público en general que quiera desempeñarse como operador e máquinas pesada. En el mismo se va aprender principalmente a operar, mantener y trabajar con equipos grandes usados en construcción, minería y obras viales. Siempre considerando las normas de seguridad.",
+    "actividades": "El curso será teórico práctico una vez vista la teoría se procede a materializar lo teórico que consiste en: Mantenimiento básico, revisar los fluidos de la máquina, detectar fallas comunes y el cuidado general de la máquina. Técnicas de trabajo que consiste en movimiento de tierras, nivelación de terrenos, excavación y carga de materiales",
+    "duracion_total": "4 semana (12 Encuentros )",
+    "fecha_inicio": "2026-04-08",
+    "fecha_inicio_legible": "8 de abril",
+    "fecha_fin": "2026-05-28",
+    "fecha_fin_legible": "28 de mayo",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      4
+    ],
+    "dias_horarios": [
+      "Miércoles de 08:00 a 12:00",
+      "Jueves de 15:00 a 19:00"
+    ],
+    "localidades": [
+      "Purmamarca"
+    ],
+    "direcciones": [
+      "-"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": true,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Elementos de protección personal"
+      ],
+      "entrega_curso": []
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScTEut61r4g0ac4RzIaf2LBE051IwFYk9phi56ak1aECfAqOA/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418671625_6907912b0faa.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "63a37fe6-ac587f",
+    "slug": "operacion-segura-de-hidrogruas-e-hidroelevadores-purmamarca",
+    "titulo": "Operación Segura de Hidrogrúas e Hidroelevadores – Purmamarca",
+    "descripcion_breve": "Capacitación teórico-práctica en operación segura de hidrogrúas e hidroelevadores, con enfoque en seguridad laboral y uso responsable de equipos.",
+    "descripcion_completa": "El curso está dirigido a jóvenes y adultos que deseen formarse en la operación y mantenimiento de hidrogrúas e hidroelevadores. A lo largo de la capacitación, los participantes aprenderán a utilizar correctamente los equipos de izaje, aplicar normas de seguridad, identificar riesgos y manejar elementos de protección personal (EPP). La propuesta combina teoría y práctica para brindar herramientas sólidas que mejoren la empleabilidad en el ámbito laboral e industrial.",
+    "actividades": "Clases teóricas dinámicas sobre seguridad y normativa. ✔ Presentación de componentes y funciones de los equipos. ✔ Demostración y práctica con elementos de protección personal. ✔ Ejercicios prácticos supervisados con maquinaria. ✔ Evaluación teórico-práctica final",
+    "duracion_total": "3 Mes",
+    "fecha_inicio": "2026-04-08",
+    "fecha_inicio_legible": "8 de abril",
+    "fecha_fin": "2026-06-26",
+    "fecha_fin_legible": "26 de junio",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Miércoles de 18:00 a 21:00",
+      "Viernes de 18:00 a 21:00"
+    ],
+    "localidades": [
+      "Purmamarca"
+    ],
+    "direcciones": [
+      "A definir"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": true,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Teléfono (para ver material didáctico)"
+      ],
+      "entrega_curso": [
+        "Cartillas de apoyo para el aprendizaje"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSeIYKGX6SL4GrIFF1vlrOfNLAi6jcRvvakq9JmLKk35NSryFA/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774418992806_892cfb0f9817.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "4ace0323-4dd24c",
+    "slug": "soldadura-basica-y-manejo-de-herramientas-huacalera",
+    "titulo": "Soldadura Básica y Manejo de Herramientas – Huacalera",
+    "descripcion_breve": "Este curso permite que los alumnos puedan tener alternativas laborales en la industria ( sabiendo lo básico de soldadura y manejo de herramientas) , como operario, y así también el auto -empleo dónde pdra satisfacer las necesidades de una comunidad (portones , fabricación de muebles y reparación en general, ect.)",
+    "descripcion_completa": "Este curso está destinado a personas de ambos sexo, dónde se capacitara para el rubro de la industria metalúrgica y el auto empleo las actividades a realizar son : uniones entre piezas metálicas, utilizando técnicas de trazado - corte y posicionamiento de piezas a unir utilizando equipos especifico para cada tarea ( herramientas manuales - amoladora - taladro - soldadora)",
+    "actividades": "1-conocimientos básicos de dibujo técnico, 2- interpretación de plano, 3 -tecnica para manejo de herramientas electrónica y manuales, 4-tecnica de trazado y cortes 5-tecnica para procedimiento de armado de unión de piezas metálicas 6- técnica de movimientos y angulo de movimiento 7-tecnica de procedimiento de piezas terminada ( debaste y pulido)",
+    "duracion_total": "3 meses",
+    "fecha_inicio": "2026-04-06",
+    "fecha_inicio_legible": "6 de abril",
+    "fecha_fin": "2026-06-30",
+    "fecha_fin_legible": "30 de junio",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      3
+    ],
+    "dias_horarios": [
+      "Lunes de 09:00 a 12:00",
+      "Martes de 09:00 a 12:00"
+    ],
+    "localidades": [
+      "Huacalera"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Celular",
+        "Guantes",
+        "Gafas de seguridad"
+      ],
+      "entrega_curso": [
+        "Herramientas manuales (punta de trazar, escuadras, máscara de soldar)",
+        "Máquinas herramientas (taladro, amoladora y soldadora)"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSdS4eiP79fVjaSCLtMKCPq9QJGgEYOWnRyiwSmeuC4Xl6tOzg/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774419112994_7e5d07145c1b.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "c108e5d9-17eb29",
+    "slug": "pasteleria-basica-moderna-tumbaya",
+    "titulo": "Pastelería Básica Moderna – Tumbaya",
+    "descripcion_breve": "Curso que enseña técnicas actuales de pastelería para crear postres innovadores, combinando sabores, texturas y presentaciones modernas con métodos profesionales.",
+    "descripcion_completa": "Este proyecto busca desarrollar competencias técnicas, creatividad, control de proceso y visión emprendedora, permitiendo a los alumnos elaborar productos innovadores con estándares profesionales. Se trabajaran diferentes elaboraciones como mousses, cremosos, bizcochos, glaseados espejo, ganaches, crujientes y decoraciones modernas, además de técnicas de montaje y acabado utilizadas en la pastelería contemporánea. También se enseña el uso correcto de ingredientes, herramientas y procesos para lograr resultados de alta calidad.",
+    "actividades": "Introducción y bases técnicas. Mousses y cremosos . Glaseado espejo . Texturas contemporáneas. Emplatados, salsas, coulis . Tarta moderna . Postre de autor",
+    "duracion_total": "4 semanas",
+    "fecha_inicio": "2026-04-07",
+    "fecha_inicio_legible": "7 de abril",
+    "fecha_fin": "2026-04-30",
+    "fecha_fin_legible": "30 de abril",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      4
+    ],
+    "dias_horarios": [
+      "Martes de 08:00 a 12:00",
+      "Jueves de 08:00 a 12:00"
+    ],
+    "localidades": [
+      "Tumbaya"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Delantal",
+        "Cofia",
+        "Utensilios: balanza, espátula, compotera",
+        "Ingredientes: azúcar, harina, crema"
+      ],
+      "entrega_curso": [
+        "Recetarios en formato PDF"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSfNY_a35ag077RVMjuIvPGwbqunFmGykMFkj5GTrViHhG508g/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774419204416_d64be06ce9a5.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "9c5a7fe2-762aaa",
+    "slug": "ayudante-panadero-tumbaya",
+    "titulo": "Ayudante Panadero – Tumbaya",
+    "descripcion_breve": "Curso práctico que enseña las bases de la panadería: preparación de masas, amasado, fermentación y horneado, junto con normas de higiene. Ideal para iniciarse como ayudante panadero",
+    "descripcion_completa": "El curso de ayudante panadero está diseñado para brindar una formación a quienes desean iniciarse en el oficio de la panadería. A lo largo de la capacitación, los participantes adquieren conocimientos teóricos y prácticos sobre la elaboración de distintos productos panificados, como panes, facturas, bizcochos y masas básicas. Se enseñan técnicas fundamentales como el misse en place y selección de ingredientes, amasado manual y mecánico, tiempos y procesos de fermentación, armado de piezas y horneado. Además, se aborda el uso adecuado de herramientas y maquinaria, junto con normas de higiene, manipulación segura de alimentos y organización del espacio de trabajo. El curso también introduce conceptos básicos de conservación de productos, control de calidad y trabajo en equipo dentro de una panadería.",
+    "actividades": "Introducción a la Panadería - Higiene personal -Seguridad y la higiene en la panadería -Conocer los utensilios y equipos de panadería -Seguridad alimentaria (manipulación de alimentos, limpieza, uso correcto de delantal, gorro) -Aprender a preparar y medir ingredientes (mise en place) -Conocer las técnicas básicas de amasado y fermentación",
+    "duracion_total": "4 semanas",
+    "fecha_inicio": "2026-04-06",
+    "fecha_inicio_legible": "6 de abril",
+    "fecha_fin": "2026-04-29",
+    "fecha_fin_legible": "29 de abril",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      4
+    ],
+    "dias_horarios": [
+      "Lunes de 08:00 a 12:00",
+      "Miércoles de 08:00 a 12:00"
+    ],
+    "localidades": [
+      "Tumbaya"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Delantal/Cofia",
+        "Materia prima: harina, azúcar, levadura",
+        "Utensilios: bowl, cuchara, balanza"
+      ],
+      "entrega_curso": [
+        "Recetarios en formato PDF",
+        "Horno",
+        "Cocina"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSd4UaeA3RG9VUcE3kQs0QYluV1efIm_cibQ0fG8C1eFxQyiAw/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774420842946_8be998a977ad.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  },
+  {
+    "id": "4d25fd67-63e099",
+    "slug": "ayudante-panadero-volcan",
+    "titulo": "Ayudante Panadero – Volcán",
+    "descripcion_breve": "Curso práctico que enseña las bases de la panadería: preparación de masas, amasado, fermentación y horneado, junto con normas de higiene. Ideal para iniciarse como ayudante panadero.",
+    "descripcion_completa": "El curso de ayudante panadero está diseñado para brindar una formación a quienes desean iniciarse en el oficio de la panadería. A lo largo de la capacitación, los participantes adquieren conocimientos teóricos y prácticos sobre la elaboración de distintos productos panificados, como panes, facturas, bizcochos y masas básicas. Se enseñan técnicas fundamentales como el misse en place y selección de ingredientes, amasado manual y mecánico, tiempos y procesos de fermentación, armado de piezas y horneado. Además, se aborda el uso adecuado de herramientas y maquinaria, junto con normas de higiene, manipulación segura de alimentos y organización del espacio de trabajo. El curso también introduce conceptos básicos de conservación de productos, control de calidad y trabajo en equipo dentro de una panadería.",
+    "actividades": "Introducción a la Panadería - Higiene personal -Seguridad y la higiene en la panadería -Conocer los utensilios y equipos de panadería -Seguridad alimentaria (manipulación de alimentos, limpieza, uso correcto de delantal, gorro) -Aprender a preparar y medir ingredientes (mise en place) -Conocer las técnicas básicas de amasado y fermentación",
+    "duracion_total": "4 semanas",
+    "fecha_inicio": "2026-04-06",
+    "fecha_inicio_legible": "6 de abril",
+    "fecha_fin": "2026-04-29",
+    "fecha_fin_legible": "29 de abril",
+    "frecuencia_semanal": 2,
+    "duracion_clase_horas": [
+      4
+    ],
+    "dias_horarios": [
+      "Lunes de 14:00 a 18:00",
+      "Miércoles de 14:00 a 18:00"
+    ],
+    "localidades": [
+      "Volcán"
+    ],
+    "direcciones": [
+      "A informar"
+    ],
+    "requisitos": {
+      "mayor_18": true,
+      "carnet_conducir": false,
+      "primaria_completa": false,
+      "secundaria_completa": false,
+      "otros": []
+    },
+    "materiales": {
+      "aporta_estudiante": [
+        "Cuaderno",
+        "Lapicera",
+        "Delantal/Cofia",
+        "Materia prima: harina, azúcar, levadura",
+        "Utensilios: bowl, cuchara, balanza"
+      ],
+      "entrega_curso": [
+        "Recetarios en formato PDF",
+        "Horno",
+        "Cocina"
+      ]
+    },
+    "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSdQE-p28blRI1-UJBJZWpCP12pn4rfyKYPzHJFHUStHCeajPQ/viewform?usp=dialog",
+    "imagen": "/uploads/cursos/curso_1774421197064_cc1da246a933.webp",
+    "estado": "inscripcion_abierta",
+    "inscripcion_inicio": "2026-03-25T08:00",
+    "inscripcion_fin": "",
+    "cupos": 50
+  }
+]
