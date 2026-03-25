@@ -47,7 +47,13 @@ Thumbs.db
 
 # Backend / deploy
 mvp-unificado/node_modules/
-mvp-unificado/public/
+# Build del frontend: ignorar todo public salvo uploads de cursos
+mvp-unificado/public/*
+!mvp-unificado/public/uploads/
+mvp-unificado/public/uploads/*
+!mvp-unificado/public/uploads/cursos/
+mvp-unificado/public/uploads/cursos/*
+!mvp-unificado/public/uploads/cursos/*.webp
 mvp-unificado/.env
 mvp-unificado/uploads/
 
