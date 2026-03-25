@@ -58,10 +58,11 @@ export class Slider implements OnInit, OnDestroy {
   ];
 
   // ✅ URLs alineadas al MISMO orden de arriba
+  // portal_5 y portal_4 YA NO REDIRIGEN
   private portalUrls: Array<string | undefined> = [
-    'https://docs.google.com/forms/d/e/1FAIpQLSdczAkINjsh0gxzO1IqhvLKAmlbrc27S9Td1qGU48dH91a1_g/viewform', // portal_5
+    undefined,                       // portal_5
     undefined,                       // portal_4
-    'https://empleopi.jujuy.gob.ar',  // portal_1
+    'https://empleopi.jujuy.gob.ar', // portal_1
     undefined,                       // portal_2
     undefined,                       // portal_3
   ];
