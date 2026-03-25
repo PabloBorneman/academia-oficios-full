@@ -1,0 +1,961 @@
+/* =====================  Layout general  ===================== */
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--color-fondo);
+  color:var(--color-texto);
+}
+
+/* =================  Contenedor principal  =================== */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 1.5rem; /* 🔽 menos padding arriba */
+}
+
+/* ========================  Intro  =========================== */
+.intro {
+  display: flex;
+  align-items: center;
+  background: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+.logo{ width:220px; height:auto; }
+
+.logo-academia {
+  width: 160px;       /* 🔧 más angosto para que no empuje */
+  height: auto;
+  margin-right: 1rem;
+}
+
+.descripcion{ flex:1; font-size:1.1rem; line-height:1.6; }
+.descripcion .resaltado{ color:var(--color-secundario); font-weight:600; }
+
+/* =====================  Separador  ========================== */
+.separador{ border:none; border-top:2px solid #eee; margin:0.5rem 0; }
+
+/* =================  Título de sección  ====================== */
+.titulo-cursos{
+  font-size:2rem; color:var(--color-primario); margin:0;
+  font-family:'Poppins',sans-serif;
+}
+
+/* ===== Header con título y filtro de localidad  ============= */
+.header-cursos{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem; margin-top: 0.5rem;
+}
+
+/* ==============  Filtro y mensaje de localidad  ============== */
+.filtro-con-mensaje{
+  display:flex; flex-direction:column; align-items:center; gap:.3rem;
+  width:100%; max-width:250px;
+}
+.label-localidad{
+  font-family:'Poppins',sans-serif;
+  font-size:1rem;
+  font-weight:700;                   /* más gordita */
+  color:var(--color-primario);     /* naranja del proyecto */
+  text-align:center;
+  width:100%;
+}
+.filtro-select{
+  padding:.55rem .8rem;
+  font-size:1rem;
+  font-weight:600;                   /* más gordita */
+  border:2px solid var(--color-secundario);  /* borde naranja */
+  border-radius:8px;
+  width:100%;
+  max-width:250px;
+  background:var(--color-blanco);
+  color:var(--color-secundario);     /* texto naranja (si preferís oscuro, poné var(--color-texto)) */
+  font-family:'Poppins',sans-serif;
+  transition: border-color .2s ease, box-shadow .2s ease, outline-color .2s ease;
+}
+.filtro-select:hover{
+  border-color:var(--color-secundario);
+}
+
+.filtro-select:focus,
+.filtro-select:focus-visible{
+  outline:3px solid var(--color-secundario); /* foco accesible */
+  outline-offset:2px;
+  border-color:var(--color-secundario);
+}
+/* Opciones del desplegable */
+.filtro-select option{
+  font-family:'Poppins',sans-serif;
+  font-weight:700;                 /* más gordita en la lista */
+  color:var(--color-secundario);   /* naranja */
+}
+
+
+/* ===================  Grid de cursos  ======================= */
+.cursos{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; }
+
+/* ===================  Tarjeta curso  ======================== */
+.curso-card{
+  position:relative; overflow:hidden; background:#e1e9f3;
+  border:1px solid rgba(0,0,0,.08); border-left:5px solid var(--color-primario);
+  border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,.08);
+  height:100%; transition:transform .2s ease,box-shadow .2s ease;
+  font-family:'Poppins',sans-serif; display:flex; flex-direction:column;
+}
+.curso-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* -------- Contenido tarjeta -------- */
+.curso-contenido{
+  position: relative;
+  z-index: 2;
+  padding: 2.2rem 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* 👈 ya no reparte todo el alto */
+  height: 100%;
+  color: var(--color-primario);
+  flex: 1 1 auto;
+}
+
+.curso-contenido h3 {
+  margin: 1.05rem 0 .5rem;
+  font-size: 1.25rem;
+  color: var(--color-primario);
+
+  /* reserva EXACTA para 2 líneas */
+  min-height: calc(2 * 1.3em);
+
+  /* forzar que no pase de 2 líneas */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+
+  /* 🔧 QUITAMOS flex para que no distorsione */
+  line-height: 1.3;
+}
+
+
+/* -------- Descripción con overlay -------- */
+.curso-descripcion{
+  position: relative;
+  height: 180px;
+  margin: 0;                 /* 👈 quitamos el .3rem que abría el hueco extra */
+  font-size: .95rem;
+  line-height: 1.45;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+.curso-descripcion::-webkit-scrollbar{ width:4px; }
+.curso-descripcion::-webkit-scrollbar-thumb{ background:rgba(0,0,0,.25); border-radius:2px; }
+.curso-card:hover .curso-descripcion::before{ opacity:0; }
+.curso-descripcion .overlay-img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  pointer-events:none; transition:opacity .4s ease; z-index:2;
+}
+.curso-card:hover .overlay-img{ opacity:0; }
+
+/* -------- Botones -------- */
+.botones-curso{
+  display: flex;
+  justify-content: space-between;  /* dos botones → uno izq, otro der */
+  align-items: center;
+  gap: 1rem;
+
+  margin: .8rem 0;   /* 👈 mismo espacio arriba y abajo */
+  flex: 0 0 auto;    /* no se estira */
+}
+
+.botones-curso button{
+  padding:.55rem 1.2rem; 
+  border:none; 
+  border-radius:6px; 
+  font-weight:500;
+  cursor:pointer; 
+  transition:background .2s ease; 
+  font-family:'Poppins',sans-serif;
+}
+
+.botones-curso button:first-child{
+  background:var(--color-primario); 
+  color:#fff;
+}
+.botones-curso button:first-child:hover{
+  background:var(--color-primario-hover, #093656);
+}
+
+.botones-curso .boton-info{
+  background:var(--color-primario); 
+  color:#fff;
+}
+.botones-curso button:hover{
+  background:var(--color-primario-hover, #093656);
+}
+
+/* ✅ Si hay un solo botón */
+.botones-curso.is-centered{
+  justify-content:center;
+}
+
+/* -------- Estado -------- */
+.estado-label{
+  position:absolute; top:.75rem; left:0; padding:.3rem .9rem;
+  border-top-right-radius:4px; border-bottom-right-radius:4px;
+  font-size:.85rem; font-weight:600; color:#fff; z-index:3;
+}
+.estado-inscripcion_abierta{ background:#2e7d32; }
+.estado-en_curso          { background:var(--color-secundario); } /* ← usa el naranja nuevo */
+.estado-finalizado        { background:#c62828; }
+.estado-proximo           { background:#fdd835; color:#5e5959; }
+
+
+/* -------- Footer meta (fecha ↔ cupos) -------- */
+.meta-footer {
+  margin-top: auto;
+  padding: .4rem 1.5rem;
+  border-top: 1px solid #c9c9c9;
+
+  /* conservar ancho extendido de la card */
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+
+  display: flex;
+  justify-content: space-between;    /* fecha izq — cupos der */
+  align-items: center;
+  gap: .5rem;                        /* 🔧 antes .75rem: acerca “Cupos” */
+  font-size: .9rem;
+  color: #444;
+  background: inherit;
+  min-height: 32px;
+}
+
+.meta-footer.is-single {
+  justify-content: center;           /* solo fecha, centrada */
+}
+
+/* Ítems generales */
+.meta-footer .meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 28px;                  /* altura estable */
+  line-height: 1.2;                  /* 🔧 evita recorte vertical de glyphs */
+}
+
+/* Iconos */
+.meta-footer .meta-item img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: .65;
+}
+
+/* ✅ Izquierda elástica con elipsis; derecha fija sin partir */
+.meta-footer .meta-item:first-child {
+  flex: 1 1 auto;        /* ocupa el espacio disponible */
+  min-width: 0;          /* habilita elipsis */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: .35rem; /* 🔧 “colchón” para que no se corte el último dígito */
+  max-width: 100%;
+}
+.meta-footer .meta-item:last-child {
+  flex: 0 0 auto;        /* ancho contenido */
+  white-space: nowrap;   /* nunca se parte */
+  margin-left: 0;        /* 🔧 antes .5rem: elimina separación extra */
+}
+
+/* ✅ Mobile: NO wrap; si falta espacio, elide a la izquierda */
+@media (max-width: 480px) {
+  .meta-footer {
+    flex-wrap: nowrap;             /* ← clave: no dividir filas */
+    column-gap: .35rem;            /* 🔧 aún más cerca en mobile */
+    font-size: .85rem;
+    padding: .25rem 1rem .35rem;
+  }
+  .meta-footer .meta-item {
+    gap: .4rem;
+    min-height: 24px;
+  }
+  .meta-footer .meta-item img {
+    width: 16px; height: 16px;
+    opacity: .7;
+  }
+
+  /* Mantener coherencia del ancho extendido con padding 1rem */
+  .meta-footer {
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+/* -------- Meta superior (apertura/cierre de inscripciones) -------- */
+.meta-top{
+  /* ancho extendido como la card */
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+
+  /* más “costado” que “arriba/abajo” */
+  padding: .4rem 1.5rem;  
+  border-top: 1px solid #c9c9c9;
+
+  display: flex;
+  justify-content: center;   /* ⬅️ centra todo el bloque (icono + texto) */
+  align-items: center;       /* ⬅️ centra verticalmente */
+  gap: .4rem;                /* menos aire entre icono y texto */
+
+  font-size: .9rem;
+  line-height: 1;            /* evita descender/glyph baseline raro */
+  color: #444;
+  background: inherit;
+
+  white-space: nowrap;       /* “de” no baja de línea */
+  overflow: hidden;          /* si no entra, recorta… */
+  text-overflow: ellipsis;   /* …con puntos suspensivos */
+  min-height: 32px;           /* altura pareja con el footer */
+}
+
+/* Ítem (icono + texto) */
+.meta-top .meta-item{
+  display: inline-flex;
+  align-items: center;       /* icono y texto al medio exacto */
+  gap: .35rem;
+}
+
+/* Icono */
+.meta-top img{
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: .65;
+  display: block;            /* evita desalineo por baseline */
+}
+
+/* ↓ menos aire entre la línea y “Comenzó” */
+.meta-top + .meta-footer{
+  border-top: 1px solid #c9c9c9;
+  padding-top: .12rem;            /* antes .3rem */
+}
+
+.meta-footer{
+  padding: .28rem 1.5rem .32rem;  /* antes .4rem 1.5rem */
+  min-height: 28px;               /* opcional: baja la altura */
+}
+
+.meta-footer .meta-item{
+  min-height: 24px;               /* opcional: acompaña la reducción */
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 480px){
+  .meta-top{
+    /* mantiene centrado y coherencia de ancho extendido con padding 1rem */
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+    padding: .28rem 1rem .34rem;  /* proporción: más costado que arriba/abajo */
+    font-size: .85rem;
+    gap: .35rem;
+  }
+
+  .meta-top .meta-item{ gap: .3rem; }
+
+  .meta-top img{
+    width: 16px;
+    height: 16px;
+    opacity: .7;
+  }
+}
+
+
+
+/* ===================  Responsive  ============================ */
+@media (max-width:600px){
+  .intro{ flex-direction:column; text-align:center; }
+  .logo{ margin:0 auto; }
+  .descripcion{ font-size:1rem; padding:0 1rem; }
+
+  /* 🔹 Header "Nuestros Cursos" + años + filtro centrados */
+  .header-cursos{
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:.6rem;
+    margin-bottom:1rem;
+  }
+
+  .titulo-cursos{
+    width:100%;
+    text-align:center;
+  }
+
+  .year-switch{
+    width:100%;
+    justify-content:center;
+    gap:.6rem;
+  }
+
+  .filtro-con-mensaje{
+    width:100%;
+    max-width:320px;
+    margin:0 auto;
+    align-items:center;
+    text-align:center;
+    gap:.3rem;
+  }
+
+  .label-localidad{ width:100%; text-align:center; }
+  .filtro-select{ width:100%; }
+}
+
+/* ===================================================================
+   BANNERS – institucional y chatbot (anti-CLS)
+   =================================================================== */
+
+.banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  background:var(--color-primario);
+  color:#fff;
+  padding:1rem 1.5rem;
+  border-radius:8px;
+  margin:0 auto;
+  min-height:120px;
+  font-family:'Poppins',sans-serif;
+  max-width:1140px;
+}
+
+/* ── INSTITUCIONAL ─────────────────────────────────────────── */
+.banner--institucional{ gap:0; }
+
+.banner--institucional .banner__img:first-child,
+.banner--institucional .banner__img:last-child{
+  flex:0 0 200px;
+  height:120px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.banner--institucional .banner__texto{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* Columna imagen (general) */
+.banner__img{
+  flex:0 0 200px;
+  height:120px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.banner__img img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  display:block; /* quita gap inline */
+}
+
+/* Columna de texto (general) */
+.banner__texto{
+  flex:1;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+}
+.banner__titulo{ font-size:2.6rem; font-weight:700; margin:0 0 .4rem; }
+.banner__subtitulo{ font-size:1.5rem; font-weight:500; margin:0; line-height:1.4; }
+.banner__texto .resaltado{ color:var(--color-secundario); font-weight:600; }
+
+/* Logo derecha (institucional) */
+.logo-gobierno-banner{ width:200px; height:auto; object-fit:contain; display:block; }
+
+/* ── CHATBOT (desktop = mismas dimensiones que institucional) ───────── */
+@media (min-width:769px){
+  .banner.banner--chatbot{
+    display:grid;                        /* override del flex base */
+    grid-template-columns: 1fr 200px;    /* texto | imagen */
+    align-items:center;
+    gap: 1rem;
+    min-height:120px;                    /* = institucional */
+  }
+  .banner--chatbot .banner__img{
+    justify-self:center;                 /* ← centrado, no a la derecha */
+    height:120px;                        /* = institucional */
+    max-width:200px;                     /* = institucional */
+    width:auto;
+    overflow:visible;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .banner--chatbot .banner__img img{
+    height:100%;
+    width:auto;
+    object-fit:contain;
+    display:block;
+  }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width:768px){
+  .banner{
+    flex-direction:column;
+    text-align:center;
+    padding:.5rem 1rem;
+    gap:.5rem;
+  }
+
+  .banner__img{
+    flex:0 0 auto;
+    height:auto;
+    display:flex;
+    padding:0;
+    line-height:0;
+  }
+
+  /* INSTITUCIONAL móvil: solo logo Academia */
+  .banner--institucional{ align-items:center; justify-content:center; min-height:120px; }
+  .banner--institucional .banner__texto,
+  .banner--institucional .banner__img:last-child,
+  .banner--institucional .logo-gobierno-banner{ display:none !important; }
+  .banner--institucional .banner__img:first-child{ display:flex; margin:0 auto; width:85%; }
+  .banner--institucional .banner__img:first-child img{ width:100%; height:auto; object-fit:contain; display:block; margin:0 auto; }
+
+  /* CHATBOT móvil (casco más chico) */
+  .banner.banner--chatbot{
+    display:grid;
+    grid-template-columns:1fr;
+    min-height:auto;
+  }
+  .banner--chatbot .banner__img{
+    width: clamp(160px, 58vw, 280px);   /* ↓ tamaño reducido */
+    max-width: 280px;
+    margin-inline:auto;
+    aspect-ratio:1280 / 922;            /* reserva estable en mobile */
+  }
+  .banner--chatbot .banner__img img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+
+  /* Fallback si no hay soporte de aspect-ratio (sólo aplica en mobile) */
+  @supports not (aspect-ratio: 1 / 1){
+    .banner--chatbot .banner__img{ position:relative; padding-bottom:calc(922 / 1280 * 100%); height:auto; }
+    .banner--chatbot .banner__img img{ position:absolute; inset:0; width:100%; height:100%; }
+  }
+
+  .banner__titulo{ font-size:1.9rem; }
+  .banner__subtitulo{ font-size:1.2rem; margin:0; }
+}
+
+/* Extra fino para pantallas muy chicas */
+@media (max-width:360px){
+  .banner--chatbot .banner__img{
+    width: clamp(150px, 54vw, 240px);
+    max-width: 240px;
+  }
+}
+
+
+/* ===================================================================== */ 
+/* ==========================  INTRO MODAL  ============================= */
+/* ===================================================================== */
+
+.intro-backdrop{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.45); backdrop-filter:blur(4px);
+  z-index:1000;
+  opacity:0; animation:backdropIn .18s ease-out forwards;
+}
+
+.intro-modal{
+  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+  z-index:1001;
+
+  /* Tamaño estable (anti-CLS) */
+  width:min(960px, calc(100% - 1rem));
+  min-height:clamp(360px, 56vh, 640px);
+
+  /* Layout y estilo */
+  background:var(--color-primario);
+  border-radius:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+  padding:1.8rem 1.6rem;
+  display:flex; align-items:center; gap:1.6rem;
+  font-family:'Poppins',sans-serif;
+
+  /* Aislar reflow y animar sin provocar CLS */
+  contain:layout paint;
+  opacity:0; animation:modalIn .18s ease-out forwards;
+  will-change:transform, opacity;
+}
+
+.intro-close{
+  position:absolute; top:.6rem; right:.8rem;
+  background:none; border:none; cursor:pointer;
+  font-size:2rem; line-height:1; color:#fff;
+}
+
+.intro-avatar{
+  flex:0 0 34%;
+  max-width:330px; max-height:470px;
+  width:100%; height:auto; object-fit:contain;
+  aspect-ratio:1/1;           /* caja estable antes de cargar */
+}
+
+.intro-texto{
+  flex:1 1 0;
+  display:flex; flex-direction:column; justify-content:center;
+  align-items:center; text-align:center; color:#fff; gap:.3rem;
+}
+
+/* Título principal */
+.intro-texto h2{
+  margin:0;
+  font-weight:800;
+  font-size:clamp(30px, 3.6vw, 44px);
+  line-height:1.18;
+}
+
+/* Subtítulo (24/7) */
+.intro-texto .sublinea{
+  margin:0 0 .8rem 0;
+  font-weight:700;
+  font-size:clamp(22px, 2.8vw, 30px);
+  line-height:1.25;
+}
+
+/* Párrafos */
+.intro-texto p{
+  margin:.3rem 0;
+  font-size:clamp(18px, 2.1vw, 22px);
+  line-height:1.45;
+}
+
+.intro-texto .resaltado{
+  color:var(--color-secundario);
+  font-weight:700;
+}
+
+/* CTA */
+.intro-btn{
+  align-self:center;
+  margin-top:.8rem;
+  padding:.8rem 1.8rem;
+  font-size:clamp(18px, 2vw, 20px);
+  background:var(--color-secundario); color:#fff;
+  border:none; border-radius:10px;
+  font-weight:700; cursor:pointer;
+  transition:transform .06s ease, filter .2s ease;
+}
+.intro-btn:hover{ filter:brightness(1.06); }
+.intro-btn:active{ transform:translateY(1px); }
+
+/* ───── Línea compacta móvil (oculta por defecto) ───── */
+.intro-compact{
+  display:none;
+  margin:.25rem 0 .6rem;
+  font-weight:600;
+  font-size:clamp(16px, 3.8vw, 18px);
+  line-height:1.25;
+  text-align:center;
+}
+
+/* Mobile */
+@media (max-width:560px){
+  .intro-modal{
+    flex-direction:column; text-align:center; align-items:center;
+    padding:1.4rem 1rem; gap:1rem;
+    min-height:auto; /* deja crecer vertical en mobile */
+  }
+  .intro-avatar{ flex:0 0 200px; max-width:200px; max-height:260px; }
+
+  .intro-compact{ display:block; }
+  .intro-copy{ display:none; }
+
+  .intro-texto h2{ line-height:1.15; }
+  .intro-texto .sublinea{ margin:.25rem 0 .6rem; }
+}
+
+/* Animaciones sin reflow */
+@keyframes modalIn{
+  from{ opacity:0; transform:translate(-50%,-48%) scale(.98); }
+  to  { opacity:1; transform:translate(-50%,-50%) scale(1); }
+}
+@keyframes backdropIn{ from{opacity:0} to{opacity:1} }
+
+/* ===================================================================== */
+/* ==========================  Botón “arriba” =========================== */
+/* ===================================================================== */
+
+.scroll-top-btn{
+  position: fixed;
+  bottom: 20px;
+
+  /* ► lo ubicamos con LEFT, para centrar el hueco izquierdo */
+  left: 20px;    /* valor de respaldo, JS lo sobre-escribe */
+  right: auto;   /* anulamos cualquier right heredado      */
+
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primario);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  cursor: pointer;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color .3s ease-in-out;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--color-secundario); /* ← usa el naranja nuevo */
+}
+
+.scroll-top-btn .icono-up {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transform: translateY(-1px);
+  filter: brightness(0) invert(1); /* negro → blanco */
+  transition: transform .2s ease, opacity .2s ease, filter .2s ease;
+}
+
+.scroll-top-btn:hover .icono-up{
+  transform: translateY(-2px) scale(1.05);
+  opacity: .9;
+}
+
+.scroll-top-btn { display: none; }
+.scroll-top-btn.visible { display: flex; }
+
+@media (max-width: 768px) {
+  .scroll-top-btn { display: none !important; }
+}
+
+/* ===== Selector de año (2024 / 2025) ===== */
+.year-switch {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center; /* alineación vertical con el título */
+}
+
+.year-btn {
+  font-family: 'Poppins', sans-serif; /* 🔹 misma tipografía que el título */
+  appearance: none;
+  border: 2px solid var(--color-primario);
+  background: transparent;
+  color: var(--color-primario);
+  font-weight: 700;
+  font-size: 1.1rem; /* más grande */
+  padding: 0.5rem 1.4rem; /* más alto y ancho */
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.05s ease;
+}
+
+.year-btn:hover { transform: translateY(-1px); }
+
+.year-btn.is-active {
+  background: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+.year-soon {
+  margin-top: 0.4rem;
+  font-weight: 600;
+  background: var(--color-naranja-tenue);  /* antes #ffefc2 */
+  color: #5b4100;
+  border: 1px solid var(--color-naranja-suave); /* antes #f0d27a */
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .year-switch {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   AVISO CURSOS 2026
+   Pegar al final de home.css
+   ============================================================ */
+
+.aviso-cursos-2026 {
+  width: 100%;
+  margin: 0 auto 1.5rem;
+}
+
+.aviso-cursos-2026__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background: var(--color-primario);
+  color: var(--color-blanco);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  min-height: 120px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.aviso-cursos-2026__titulo {
+  margin: 0 0 .35rem 0;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-blanco);
+}
+
+.aviso-cursos-2026__texto {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-blanco);
+}
+
+.aviso-cursos-2026__texto strong,
+.aviso-cursos-2026__texto .resaltado {
+  color: var(--color-secundario);
+  font-weight: 700;
+}
+
+.aviso-cursos-2026__btn {
+  flex: 0 0 auto;
+  appearance: none;
+  border: 2px solid var(--color-blanco);
+  background: transparent;
+  color: var(--color-blanco);
+  border-radius: 999px;
+  padding: 0.75rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .05s ease;
+}
+
+.aviso-cursos-2026__btn:hover {
+  background: var(--color-blanco);
+  color: var(--color-primario);
+}
+
+.aviso-cursos-2026__btn:active {
+  transform: translateY(1px);
+}
+
+/* Modal del aviso */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+  padding: 1rem;
+}
+
+.modal-box {
+  width: min(480px, 100%);
+  background: var(--color-blanco);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-box h3 {
+  margin: 0 0 .75rem 0;
+  font-size: 1.5rem;
+  color: var(--color-primario);
+}
+
+.modal-box p {
+  margin: 0 0 1.2rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-texto);
+}
+
+.modal-btn {
+  appearance: none;
+  border: none;
+  background: var(--color-primario);
+  color: var(--color-blanco);
+  border-radius: 8px;
+  padding: 0.75rem 1.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.modal-btn:hover {
+  background: var(--color-primario-hover, #093656);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aviso-cursos-2026__card {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: .8rem;
+  }
+
+  .aviso-cursos-2026__titulo {
+    font-size: 1.7rem;
+  }
+
+  .aviso-cursos-2026__texto {
+    font-size: 1.05rem;
+  }
+
+  .aviso-cursos-2026__btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}

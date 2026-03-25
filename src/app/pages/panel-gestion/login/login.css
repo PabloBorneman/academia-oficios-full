@@ -1,0 +1,54 @@
+.login-wrap {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  margin: 0 0 6px;
+}
+
+.sub {
+  margin: 0 0 16px;
+  opacity: 0.8;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  background: #fff;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-weight: 400;
+}
+
+button {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  color: #b00020;
+  font-weight: 600;
+}

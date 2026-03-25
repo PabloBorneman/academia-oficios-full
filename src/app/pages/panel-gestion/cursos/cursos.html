@@ -1,0 +1,374 @@
+<div style="max-width: 1200px; margin: 0 auto; padding: 24px;">
+  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+    <div>
+      <h1 style="margin:0;">Panel de Gestión - Cursos</h1>
+      <p style="margin:6px 0 0; opacity:.8;">OK: ruta /panel-gestion/cursos</p>
+    </div>
+
+    <div style="display:flex; gap:8px;">
+      <button type="button" (click)="newCurso()">Nuevo</button>
+      <button type="button" (click)="logout()">Salir</button>
+    </div>
+  </div>
+
+  <p *ngIf="error" style="color:#b00020; margin:16px 0 0;">{{ error }}</p>
+
+  <div style="display:flex; gap:16px; margin-top:16px; align-items:flex-start;">
+    <!-- LISTADO -->
+    <div style="flex: 1; border: 1px solid #ddd; border-radius: 8px; padding: 16px;">
+      <h2 style="margin:0 0 12px;">Listado</h2>
+
+      <p *ngIf="loadingList">Cargando...</p>
+
+      <table *ngIf="!loadingList" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="text-align:left; border-bottom:1px solid #eee; padding:8px;">ID</th>
+            <th style="text-align:left; border-bottom:1px solid #eee; padding:8px;">Titulo</th>
+            <th style="text-align:left; border-bottom:1px solid #eee; padding:8px;">Estado</th>
+            <th style="text-align:left; border-bottom:1px solid #eee; padding:8px;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of cursos">
+            <td style="border-bottom:1px solid #f2f2f2; padding:8px;">{{ c.id }}</td>
+            <td style="border-bottom:1px solid #f2f2f2; padding:8px;">{{ c.titulo }}</td>
+            <td style="border-bottom:1px solid #f2f2f2; padding:8px;">{{ c.estado || '-' }}</td>
+            <td style="border-bottom:1px solid #f2f2f2; padding:8px;">
+              <button type="button" (click)="edit(c)" style="margin-right:6px;">Editar</button>
+              <button type="button" (click)="remove(c)" style="margin-right:6px;">Eliminar</button>
+
+              <!-- ✅ Tercer botón -->
+              <button type="button" (click)="view(c)">Ver</button>
+            </td>
+          </tr>
+
+          <tr *ngIf="cursos.length === 0">
+            <td colspan="4" style="padding:10px; opacity:.7;">Sin cursos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FORM -->
+    <div style="width: 520px; border: 1px solid #ddd; border-radius: 8px; padding: 16px;">
+      <h2 style="margin:0 0 12px;">{{ formTitle }}</h2>
+
+      <form (ngSubmit)="save()">
+        <div style="display:flex; flex-direction:column; gap:10px;">
+
+          <!-- slug oculto (se conserva, no se muestra) -->
+          <input type="hidden" [(ngModel)]="form.slug" name="slug" />
+
+          <div>
+            <label><b>Titulo *</b></label><br />
+            <input type="text" [(ngModel)]="form.titulo" name="titulo" required style="width:100%; padding:8px;" />
+          </div>
+
+          <div>
+            <label><b>Estado</b></label><br />
+            <select [(ngModel)]="form.estado" name="estado" style="width:100%; padding:8px;">
+              <option *ngFor="let e of estados" [value]="e">{{ e }}</option>
+            </select>
+          </div>
+
+          <div>
+            <label><b>Descripción breve</b></label><br />
+            <textarea [(ngModel)]="form.descripcion_breve" name="descripcion_breve" rows="3" style="width:100%; padding:8px;"></textarea>
+          </div>
+
+          <div>
+            <label><b>Descripción completa</b></label><br />
+            <textarea [(ngModel)]="form.descripcion_completa" name="descripcion_completa" rows="6" style="width:100%; padding:8px;"></textarea>
+          </div>
+
+          <div>
+            <label><b>Actividades</b></label><br />
+            <textarea [(ngModel)]="form.actividades" name="actividades" rows="4" style="width:100%; padding:8px;"></textarea>
+          </div>
+
+          <div>
+            <label><b>Duración total</b></label><br />
+            <input type="text" [(ngModel)]="form.duracion_total" name="duracion_total" style="width:100%; padding:8px;" />
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <div style="flex:1;">
+              <label><b>Fecha inicio</b></label><br />
+              <input type="date" [(ngModel)]="form.fecha_inicio" name="fecha_inicio" style="width:100%; padding:8px;" />
+            </div>
+            <div style="flex:1;">
+              <label><b>Fecha fin</b></label><br />
+              <input type="date" [(ngModel)]="form.fecha_fin" name="fecha_fin" style="width:100%; padding:8px;" />
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <div style="flex:1;">
+              <label><b>Inicio legible</b></label><br />
+              <input type="text" [(ngModel)]="form.fecha_inicio_legible" name="fecha_inicio_legible" style="width:100%; padding:8px;" />
+            </div>
+            <div style="flex:1;">
+              <label><b>Fin legible</b></label><br />
+              <input type="text" [(ngModel)]="form.fecha_fin_legible" name="fecha_fin_legible" style="width:100%; padding:8px;" />
+            </div>
+          </div>
+
+          <!-- ✅ ACÁ CAMBIA: datetime-local -->
+          <div style="display:flex; gap:8px;">
+            <div style="flex:1;">
+              <label><b>Inscripción inicio</b></label><br />
+              <input
+                type="datetime-local"
+                [(ngModel)]="form.inscripcion_inicio"
+                name="inscripcion_inicio"
+                style="width:100%; padding:8px;"
+              />
+            </div>
+            <div style="flex:1;">
+              <label><b>Inscripción fin</b></label><br />
+              <input
+                type="datetime-local"
+                [(ngModel)]="form.inscripcion_fin"
+                name="inscripcion_fin"
+                style="width:100%; padding:8px;"
+              />
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <div style="flex:1;">
+              <label><b>Frecuencia semanal</b></label><br />
+              <select [(ngModel)]="form.frecuencia_semanal" name="frecuencia_semanal" style="width:100%; padding:8px;">
+                <option [ngValue]="'otro'">otro</option>
+                <option [ngValue]="1">1</option>
+                <option [ngValue]="2">2</option>
+                <option [ngValue]="3">3</option>
+                <option [ngValue]="4">4</option>
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="6">6</option>
+                <option [ngValue]="7">7</option>
+              </select>
+            </div>
+            <div style="flex:1;">
+              <label><b>Cupos</b></label><br />
+              <input type="number" [(ngModel)]="form.cupos_input" name="cupos_input" placeholder="(vacío = null)" style="width:100%; padding:8px;" />
+            </div>
+          </div>
+
+          <div>
+            <label><b>Duración clase horas (CSV)</b></label><br />
+            <input type="text" [(ngModel)]="form.duracion_clase_horas_csv" name="duracion_clase_horas_csv" placeholder="Ej: 3,4" style="width:100%; padding:8px;" />
+          </div>
+
+          <div>
+            <label><b>Días y horarios (1 por línea)</b></label><br />
+            <textarea [(ngModel)]="form.dias_horarios_text" name="dias_horarios_text" rows="4" style="width:100%; padding:8px;"></textarea>
+          </div>
+
+          <div>
+            <label><b>Localidades (1 por línea)</b></label><br />
+            <textarea [(ngModel)]="form.localidades_text" name="localidades_text" rows="3" style="width:100%; padding:8px;"></textarea>
+          </div>
+
+          <div>
+            <label><b>Direcciones (1 por línea)</b></label><br />
+            <textarea [(ngModel)]="form.direcciones_text" name="direcciones_text" rows="3" style="width:100%; padding:8px;"></textarea>
+          </div>
+
+          <div style="border-top:1px solid #eee; padding-top:10px;">
+            <label><b>Requisitos</b></label><br />
+            <label style="display:block; margin-top:6px;">
+              <input type="checkbox" [(ngModel)]="form.req_mayor_18" name="req_mayor_18" />
+              Mayor de 18
+            </label>
+            <label style="display:block; margin-top:6px;">
+              <input type="checkbox" [(ngModel)]="form.req_carnet_conducir" name="req_carnet_conducir" />
+              Carnet de conducir
+            </label>
+            <label style="display:block; margin-top:6px;">
+              <input type="checkbox" [(ngModel)]="form.req_primaria_completa" name="req_primaria_completa" />
+              Primaria completa
+            </label>
+            <label style="display:block; margin-top:6px;">
+              <input type="checkbox" [(ngModel)]="form.req_secundaria_completa" name="req_secundaria_completa" />
+              Secundaria completa
+            </label>
+
+            <div style="margin-top:10px;">
+              <label><b>Otros requisitos (1 por línea)</b></label><br />
+              <textarea [(ngModel)]="form.req_otros_text" name="req_otros_text" rows="3" style="width:100%; padding:8px;"></textarea>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #eee; padding-top:10px;">
+            <label><b>Materiales</b></label><br />
+            <div style="margin-top:10px;">
+              <label><b>Aporta estudiante (1 por línea)</b></label><br />
+              <textarea [(ngModel)]="form.mat_aporta_text" name="mat_aporta_text" rows="4" style="width:100%; padding:8px;"></textarea>
+            </div>
+            <div style="margin-top:10px;">
+              <label><b>Entrega curso (1 por línea)</b></label><br />
+              <textarea [(ngModel)]="form.mat_entrega_text" name="mat_entrega_text" rows="3" style="width:100%; padding:8px;"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <label><b>Link formulario</b></label><br />
+            <input type="url" [(ngModel)]="form.formulario" name="formulario" placeholder="https://..." style="width:100%; padding:8px;" />
+          </div>
+
+          <!-- ✅ IMAGEN (ruta + upload + preview) -->
+          <div>
+            <label><b>Imagen</b></label><br />
+            <input
+              type="text"
+              [(ngModel)]="form.imagen"
+              name="imagen"
+              placeholder="/uploads/cursos/..."
+              style="width:100%; padding:8px;"
+            />
+
+            <div style="display:flex; gap:8px; margin-top:8px; align-items:center;">
+              <input
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                (change)="onImageFileChange($event)"
+              />
+              <button type="button" (click)="clearImage()">Quitar</button>
+            </div>
+
+            <div *ngIf="uploadingImage" style="margin-top:6px; font-size:12px; opacity:.8;">
+              Subiendo imagen...
+            </div>
+
+            <div *ngIf="form.imagen" style="margin-top:10px;">
+              <img [src]="form.imagen" alt="Preview" style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+              <div style="margin-top:6px; font-size:12px; opacity:.8;">{{ form.imagen }}</div>
+              <div style="margin-top:6px; font-size:12px; opacity:.8;">
+                Nota: el servidor convierte automáticamente a <b>WEBP</b> y ajusta a <b>1280×853</b>.
+              </div>
+            </div>
+          </div>
+
+          <!-- ✅ VISTA PREVIA “como quedaría en Home” -->
+          <div id="cardPreview" class="preview-zone">
+            <div class="preview-head">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                <h3 style="margin:0;">Vista previa</h3>
+
+                <button
+                  *ngIf="previewCurso"
+                  type="button"
+                  (click)="clearView()"
+                  style="padding:6px 10px;"
+                  title="Volver a vista previa desde el form"
+                >
+                  Volver al form
+                </button>
+              </div>
+              <small *ngIf="previewCurso" style="opacity:.75;">
+                Mostrando preview del curso seleccionado con “Ver”.
+              </small>
+            </div>
+
+            <ng-container *ngIf="previewCard as p">
+              <div class="curso-card">
+                <div class="curso-contenido">
+                  <div class="estado-label" [ngClass]="getEstadoClase(p.estado)">
+                    {{ getEstadoTexto(p.estado) }}
+                  </div>
+
+                  <h3 class="curso-titulo">{{ p.titulo }}</h3>
+
+                  <p class="curso-descripcion">
+                    {{ p.descripcion }}
+                    <img
+                      *ngIf="p.imagen"
+                      class="overlay-img"
+                      [src]="p.imagen"
+                      alt="Imagen de {{ p.titulo }}"
+                      width="640" height="360"
+                      decoding="async"
+                    />
+                  </p>
+
+                  <div
+                    class="botones-curso"
+                    [class.is-centered]="!(p.estado === 'inscripcion_abierta' || p.estado === 'ultimos_cupos')"
+                  >
+                    <button
+                      class="btn-inscribirme"
+                      type="button"
+                      disabled
+                      *ngIf="p.estado === 'inscripcion_abierta' || p.estado === 'ultimos_cupos'"
+                    >
+                      Inscribirme
+                    </button>
+
+                    <button class="boton-info" type="button" disabled>🔎 Más Info</button>
+                  </div>
+
+                  <!-- Meta superior: Apertura/Cierre -->
+                  <div
+                    class="meta-top"
+                    *ngIf="(p.estado === 'proximo' || p.estado === 'inscripcion_abierta' || p.estado === 'ultimos_cupos') ? p.inscripcion_inicio : p.inscripcion_fin"
+                  >
+                    <img src="assets/img/reloj.svg" alt="" aria-hidden="true" role="presentation" width="18" height="18" />
+                    <span>
+                      {{
+                        (p.estado === 'proximo' || p.estado === 'inscripcion_abierta' || p.estado === 'ultimos_cupos')
+                          ? 'Apertura de inscripciones'
+                          : 'Cierre de inscripciones'
+                      }}:
+                      {{
+                        (p.estado === 'proximo' || p.estado === 'inscripcion_abierta' || p.estado === 'ultimos_cupos')
+                          ? formatDDMMYYYY(p.inscripcion_inicio)
+                          : formatDDMMYYYY(p.inscripcion_fin)
+                      }}
+                    </span>
+                  </div>
+
+                  <!-- Footer meta -->
+                  <div
+                    class="meta-footer"
+                    [class.is-single]="!getCuposTextoFromValue(p.cupos)"
+                    aria-label="Información de inicio y cupos"
+                  >
+                    <div class="meta-item fecha-inicio">
+                      <img src="assets/img/icono-calendario.svg" alt="Ícono calendario" width="18" height="18" />
+                      <span>
+                        {{ getFechaPrefix(p.fecha_inicio) }}
+                        <ng-container *ngIf="p.fecha_inicio && getFechaPrefix(p.fecha_inicio) !== 'Sin fecha confirmada'">
+                          : {{ formatDDMMYYYY(p.fecha_inicio) }}
+                        </ng-container>
+                      </span>
+                    </div>
+
+                    <ng-container *ngIf="getCuposTextoFromValue(p.cupos) as cuposTxt">
+                      <div class="meta-item cupos" [attr.aria-label]="cuposTxt">
+                        <img src="assets/img/personas.svg" alt="" aria-hidden="true" role="presentation" width="18" height="18" />
+                        <span>{{ cuposTxt }}</span>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <button type="submit" [disabled]="saving || uploadingImage">
+              {{ saving ? 'Guardando...' : (editing ? 'Guardar' : 'Crear') }}
+            </button>
+
+            <button *ngIf="editing" type="button" (click)="cancelEdit()">
+              Cancelar
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

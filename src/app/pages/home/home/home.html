@@ -1,0 +1,350 @@
+<!-- ─────────── Modal de bienvenida al asistente ─────────── -->
+<div *ngIf="showIntroModal">
+  <div class="intro-backdrop"></div>
+
+  <div
+    class="intro-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="introTitle"
+  >
+    <button class="intro-close" (click)="closeIntroModal()" aria-label="Cerrar">
+      ×
+    </button>
+
+    <img
+      src="assets/img/ella.webp"
+      alt="Avatar asistente virtual Camila"
+      class="intro-avatar"
+      width="512"
+      height="512"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+
+    <div class="intro-texto">
+      <h2 id="introTitle">¡Hola! Soy <span class="resaltado">Camila</span></h2>
+      <h2 class="sublinea">
+        Asistente virtual <span class="resaltado">24/7</span>
+      </h2>
+
+      <div class="intro-copy">
+        <p>
+          Buscá mi <span class="resaltado">Casco Amarillo</span> abajo a la
+          derecha.
+        </p>
+        <p>
+          Preguntame por <span class="resaltado">fechas</span>,
+          <span class="resaltado">requisitos</span> e
+          <span class="resaltado">inscripción</span>.
+        </p>
+        <p>
+          Te recomiendo el <span class="resaltado">curso ideal</span> según tu
+          perfil.
+        </p>
+      </div>
+
+      <div class="intro-compact">
+        <p>Buscá mi <span class="resaltado">Casco Amarillo</span></p>
+        <p><span class="resaltado">Preguntame</span> y</p>
+        <p>¡Aclararé todas tus <span class="resaltado">dudas</span>!</p>
+      </div>
+
+      <button class="intro-btn" (click)="closeIntroModal()">Entiendo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────────────────────────────────────────────────── -->
+
+<div class="container">
+  <div class="banner banner--institucional">
+    <div class="banner__img">
+      <img
+        src="assets/img/academia.webp"
+        alt="Academia de Oficios"
+        class="logo-academia"
+        width="1280"
+        height="1125"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+
+    <div class="banner__texto">
+      <h2 class="banner__titulo">Tu futuro empieza hoy</h2>
+      <p class="banner__subtitulo">
+        <span class="resaltado">Capacitaciones gratuitas</span>
+        con <span class="resaltado">salida laboral</span> en Jujuy
+      </p>
+    </div>
+
+    <div class="banner__img">
+      <img
+        src="assets/img/gobierno-jujuy-abajo.webp"
+        alt="Gobierno de Jujuy"
+        class="logo-gobierno-banner"
+        width="280"
+        height="80"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <app-slider></app-slider>
+
+  <section
+    class="banner banner--chatbot"
+    aria-labelledby="chatbot-banner-titulo"
+  >
+    <div class="banner__texto">
+      <h2 id="chatbot-banner-titulo" class="banner__titulo">
+        ¿Tenés dudas sobre los cursos?
+      </h2>
+      <p class="banner__subtitulo">
+        Hacé clic en el <span class="resaltado">casco amarillo</span> abajo a la
+        derecha.
+      </p>
+    </div>
+
+    <div class="banner__img">
+      <img
+        src="assets/img/avatar-chatbot.webp"
+        alt=""
+        aria-hidden="true"
+        role="presentation"
+        width="1280"
+        height="922"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+
+  <!-- Título y filtro -->
+  <div class="header-cursos">
+    <h2 class="titulo-cursos">Nuestros Cursos</h2>
+
+    <!-- Selector de año -->
+    <div class="year-switch" role="tablist" aria-label="Año de cursos">
+      <button
+        class="year-btn"
+        role="tab"
+        [attr.aria-selected]="selectedYear === '2024'"
+        [class.is-active]="selectedYear === '2024'"
+        (click)="setYear('2024')"
+      >
+        2024
+      </button>
+
+      <button
+        class="year-btn"
+        role="tab"
+        [attr.aria-selected]="selectedYear === '2025'"
+        [class.is-active]="selectedYear === '2025'"
+        (click)="setYear('2025')"
+      >
+        2025
+      </button>
+
+      <button
+        class="year-btn"
+        role="tab"
+        [attr.aria-selected]="selectedYear === '2026'"
+        [class.is-active]="selectedYear === '2026'"
+        (click)="setYear('2026')"
+      >
+        2026
+      </button>
+    </div>
+
+    <div class="filtro-con-mensaje" *ngIf="!mostrarBloqueAviso2026">
+      <label class="label-localidad" for="filtro-localidad">
+        Seleccioná tu localidad
+      </label>
+
+      <select
+        id="filtro-localidad"
+        [(ngModel)]="localidadSeleccionada"
+        class="filtro-select"
+      >
+        <option value="">Todas las localidades</option>
+        <option *ngFor="let loc of localidadesUnicas" [value]="loc">
+          {{ loc }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Aviso 2026 -->
+  <div class="aviso-cursos-2026" *ngIf="mostrarBloqueAviso2026">
+    <div class="aviso-cursos-2026__card">
+      <h3 class="aviso-cursos-2026__titulo">Próximamente</h3>
+      <p class="aviso-cursos-2026__texto">
+  Los cursos estarán disponibles <span class="resaltado">mañana a las 8:00</span>.
+</p>
+
+      <button
+        type="button"
+        class="aviso-cursos-2026__btn"
+        (click)="abrirAvisoCursos2026()"
+      >
+        Ver información
+      </button>
+    </div>
+  </div>
+
+  <!-- Listado de cursos -->
+  <div class="cursos" *ngIf="!mostrarBloqueAviso2026">
+    <div
+      class="curso-card"
+      *ngFor="let curso of cursosFiltrados(); trackBy: trackById"
+      (mouseleave)="resetScroll($event)"
+    >
+      <div class="curso-contenido">
+        <!-- Estado -->
+        <div
+          class="estado-label"
+          [ngClass]="[
+            getEstadoClase(curso.estado),
+            (curso.estado === 'inscripcion_abierta' || curso.estado === 'ultimos_cupos') ? 'estado--abierta' : ''
+          ]"
+        >
+          {{ getEstadoTexto(curso.estado) }}
+        </div>
+
+        <h3 class="curso-titulo">{{ curso.titulo }}</h3>
+
+        <p class="curso-descripcion" (scroll)="onScroll($event)">
+          {{ curso.descripcion }}
+          <img
+            *ngIf="curso.imagen"
+            class="overlay-img"
+            [src]="curso.imagen"
+            [attr.width]="640"
+            [attr.height]="360"
+            decoding="async"
+            alt="Imagen de {{ curso.titulo }}"
+          />
+        </p>
+
+        <div
+          class="botones-curso"
+          [class.is-centered]="!(curso.estado === 'inscripcion_abierta' || curso.estado === 'ultimos_cupos')"
+        >
+          <button
+            class="btn-inscribirme"
+            *ngIf="curso.estado === 'inscripcion_abierta' || curso.estado === 'ultimos_cupos'"
+            (click)="openForm(curso.formulario)"
+          >
+            Inscribirme
+          </button>
+
+          <button
+            class="boton-info"
+            [routerLink]="['/curso', (curso.origen === '2026' ? (curso.slug || curso.id) : curso.id)]"
+            [queryParams]="{ y: curso.origen }"
+            [attr.data-titulo]="curso.titulo"
+          >
+            🔎 Más Info
+          </button>
+        </div>
+
+        <!-- Meta superior: inscripción (apertura/cierre) -->
+        <ng-container *ngIf="getInscripcionMeta(curso) as meta">
+          <div class="meta-top" *ngIf="meta.show">
+            <img
+              src="assets/img/reloj.svg"
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              width="20"
+              height="20"
+            />
+            <span>
+              {{ (curso.estado === 'proximo' || curso.estado ===
+              'inscripcion_abierta' || curso.estado === 'ultimos_cupos') ?
+              'Apertura de inscripciones' : 'Cierre de inscripciones' }}:
+              {{ formatDDMMYYYY(meta.iso) }}
+            </span>
+          </div>
+        </ng-container>
+
+        <!-- Footer meta -->
+        <div
+          class="meta-footer"
+          [class.is-single]="!getCuposTexto(curso)"
+          aria-label="Información de inicio y cupos"
+        >
+          <div class="meta-item fecha-inicio">
+            <img
+              src="assets/img/icono-calendario.svg"
+              alt="Ícono calendario"
+              width="20"
+              height="20"
+            />
+            <span>
+              {{ getFechaPrefix(curso.fecha_inicio) }}
+              <ng-container
+                *ngIf="curso.fecha_inicio && getFechaPrefix(curso.fecha_inicio) !== 'Sin fecha confirmada'"
+              >
+                : {{ formatDDMMYYYY(curso.fecha_inicio) }}
+              </ng-container>
+            </span>
+          </div>
+
+          <ng-container *ngIf="getCuposTexto(curso) as cuposTxt">
+            <div class="meta-item cupos" [attr.aria-label]="cuposTxt">
+              <img
+                src="assets/img/personas.svg"
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                width="20"
+                height="20"
+              />
+              <span>{{ cuposTxt }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal aviso 2026 -->
+  <div
+    class="modal-backdrop"
+    *ngIf="mostrarModalAviso2026"
+    (click)="cerrarAvisoCursos2026()"
+  >
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <h3>Información importante</h3>
+      <p>{{ mensajeAvisoCursos2026 }}</p>
+      <button
+        type="button"
+        class="modal-btn"
+        (click)="cerrarAvisoCursos2026()"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <button
+    id="scrollTopBtn"
+    class="scroll-top-btn"
+    (click)="scrollToTop()"
+    title="Ir arriba"
+  >
+    <img
+      src="assets/img/up.svg"
+      alt="Subir"
+      class="icono-up"
+      width="20"
+      height="20"
+    />
+  </button>
+</div>

@@ -1,0 +1,641 @@
+:host {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+}
+
+:host * { box-sizing: border-box; }
+
+/* ✅ Variables del proyecto (copiadas de styles.css) */
+:host {
+  --color-primario: #13304d;
+  --color-secundario: #E6603A;
+  --color-blanco: #FFFFFF;
+  --color-fondo: #f5f6fa;
+  --color-texto: #333333;
+  --color-naranja-suave: #fcbd5f;
+  --color-naranja-tenue: #fff8f0;
+}
+
+/* Contenedor como Home */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 1.5rem;
+}
+
+/* Header tipo “intro” pero admin */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.admin-subtitle {
+  margin: 0.25rem 0 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.admin-actions {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+/* Grid layout */
+.admin-grid {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: flex-start;
+}
+
+/* Panel/card estilo Home */
+.panel {
+  background: #e1e9f3;
+  border: 1px solid rgba(0,0,0,.08);
+  border-left: 5px solid var(--color-primario);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+.panel--list {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.panel--form {
+  width: 520px;
+  padding: 1rem;
+}
+
+.panel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.panel__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-primario);
+}
+
+.panel__meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: var(--color-primario);
+}
+
+.muted { opacity: 0.75; }
+
+/* Alert */
+.alert {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.alert--error {
+  background: #ffe7ea;
+  border: 1px solid #ffb3be;
+  color: #8a0013;
+}
+
+/* Table */
+.table-wrap {
+  width: 100%;
+  overflow: auto;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.55);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  color: var(--color-primario);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  vertical-align: middle;
+}
+
+.col-id { width: 210px; }
+.col-estado { width: 140px; }
+
+/* 🔧 3 botones: más ancho */
+.col-actions { width: 260px; }
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+}
+.strong { font-weight: 700; }
+
+.row-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.empty {
+  padding: 1rem !important;
+  opacity: 0.8;
+}
+
+/* Badge estados */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(0,0,0,.08);
+  color: var(--color-primario);
+  white-space: nowrap;
+}
+
+.badge--abierto { background: #2e7d32; color: #fff; }
+.badge--en_curso { background: var(--color-secundario); color: #fff; }
+.badge--finalizado { background: #c62828; color: #fff; }
+.badge--proximo { background: #fdd835; color: #5e5959; }
+.badge--cupo_completo { background: #7b1fa2; color: #fff; }
+.badge--ultimos_cupos { background: #ef6c00; color: #fff; }
+.badge--sin { background: rgba(0,0,0,.08); color: var(--color-primario); }
+
+/* Form */
+.form { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.field { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.label {
+  font-weight: 800;
+  color: var(--color-primario);
+}
+
+.req { color: var(--color-secundario); }
+
+.input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 2px solid rgba(0,0,0,.12);
+  background: var(--color-blanco);
+  color: var(--color-texto);
+  font-family: 'Poppins', sans-serif;
+  transition: border-color .2s ease, box-shadow .2s ease, outline-color .2s ease;
+}
+
+.input:hover { border-color: rgba(0,0,0,.2); }
+
+.input:focus,
+.input:focus-visible {
+  outline: 3px solid rgba(230, 96, 58, .35); /* ✅ tu secundario */
+  outline-offset: 2px;
+  border-color: var(--color-secundario);
+}
+
+textarea.input { resize: vertical; }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.divider {
+  border-top: 2px solid rgba(0,0,0,.08);
+  margin: 0.35rem 0;
+}
+
+/* Checks */
+.check {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: var(--color-texto);
+}
+.check input { transform: translateY(1px); }
+
+/* Buttons estilo Home */
+.btn {
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .2s ease, transform .05s ease;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--color-primario);
+  color: #fff;
+}
+.btn--primary:hover { filter: brightness(1.06); }
+
+.btn--secondary {
+  background: transparent;
+  border: 2px solid var(--color-primario);
+  color: var(--color-primario);
+}
+.btn--secondary:hover { filter: brightness(0.98); }
+
+.btn--danger {
+  background: #c62828;
+  color: #fff;
+}
+.btn--danger:hover { filter: brightness(1.06); }
+
+.btn--sm {
+  padding: 0.42rem 0.8rem;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.25rem;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   ✅ VISTA PREVIA + CARD (1:1 con HOME)
+   Scopeado para NO afectar el resto del ABM
+   ========================================================= */
+
+#cardPreview{
+  margin-top: 1rem;
+  padding-top: .9rem;
+  border-top: 2px solid rgba(0,0,0,.08);
+}
+
+#cardPreview .preview-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:.75rem;
+  margin-bottom:.75rem;
+}
+
+/* Card (Home literal) + ancho fijo */
+#cardPreview .curso-card{
+  position:relative;
+  overflow:hidden;
+  background:#e1e9f3;
+  border:1px solid rgba(0,0,0,.08);
+  border-left:5px solid var(--color-primario);
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  height:100%;
+  transition:transform .2s ease, box-shadow .2s ease;
+  font-family:'Poppins',sans-serif;
+  display:flex;
+  flex-direction:column;
+
+  width: min(364px, 100%);
+  max-width: 364px;
+  margin: 0 auto;
+}
+
+#cardPreview .curso-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Contenido */
+#cardPreview .curso-contenido{
+  position: relative;
+  z-index: 2;
+  padding: 2.2rem 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  color: var(--color-primario);
+  flex: 1 1 auto;
+}
+
+#cardPreview .curso-contenido h3,
+#cardPreview .curso-titulo{
+  margin: 1.05rem 0 .5rem;
+  font-size: 1.25rem;
+  color: var(--color-primario);
+
+  min-height: calc(2 * 1.3em);
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+
+  line-height: 1.3;
+}
+
+/* Descripción + overlay */
+#cardPreview .curso-descripcion{
+  position: relative;
+  height: 180px;
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.45;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+#cardPreview .curso-descripcion::-webkit-scrollbar{ width:4px; }
+#cardPreview .curso-descripcion::-webkit-scrollbar-thumb{ background:rgba(0,0,0,.25); border-radius:2px; }
+
+#cardPreview .curso-card:hover .curso-descripcion::before{ opacity:0; }
+
+#cardPreview .curso-descripcion .overlay-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  pointer-events:none;
+  transition:opacity .4s ease;
+  z-index:2;
+}
+
+#cardPreview .curso-card:hover .overlay-img{ opacity:0; }
+
+/* -------- Botones (preview: SIEMPRE fondo, SIN hover) -------- */
+#cardPreview .botones-curso{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: .8rem 0;
+  flex: 0 0 auto;
+}
+
+#cardPreview .botones-curso button{
+  -webkit-appearance: none;
+  appearance: none;
+
+  padding: .55rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+
+  background: var(--color-primario);
+  color: #fff;
+
+  transition: none; /* ✅ sin animación */
+  cursor: pointer;
+}
+
+/* ✅ SIN hover visual */
+#cardPreview .botones-curso button:hover{
+  background: var(--color-primario);
+}
+
+/* ✅ si hay un solo botón */
+#cardPreview .botones-curso.is-centered{
+  justify-content: center;
+}
+
+/* ✅ aunque esté disabled, que se vea igual al Home */
+#cardPreview .botones-curso button:disabled{
+  opacity: 1;
+  background: var(--color-primario);
+  color: #fff;
+  cursor: default;
+}
+
+/* -------- Estado -------- */
+#cardPreview .estado-label{
+  position:absolute;
+  top:.75rem;
+  left:0;
+  padding:.3rem .9rem;
+  border-top-right-radius:4px;
+  border-bottom-right-radius:4px;
+  font-size:.85rem;
+  font-weight:600;
+  color:#fff;
+  z-index:3;
+}
+
+#cardPreview .estado-inscripcion_abierta{ background:#2e7d32; }
+#cardPreview .estado-ultimos_cupos      { background:#ef6c00; }
+#cardPreview .estado-cupo_completo      { background:#7b1fa2; }
+#cardPreview .estado-en_curso           { background:var(--color-secundario); }
+#cardPreview .estado-finalizado         { background:#c62828; }
+#cardPreview .estado-proximo            { background:#fdd835; color:#5e5959; }
+
+/* Footer meta (Home literal) */
+#cardPreview .meta-footer{
+  margin-top:auto;
+  padding:.4rem 1.5rem;
+  border-top:1px solid #c9c9c9;
+
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:.5rem;
+  font-size:.9rem;
+  color:#444;
+  background: inherit;
+  min-height: 32px;
+}
+
+#cardPreview .meta-footer.is-single{ justify-content:center; }
+
+#cardPreview .meta-footer .meta-item{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  min-height:28px;
+  line-height:1.2;
+}
+
+#cardPreview .meta-footer .meta-item img{
+  width:18px;
+  height:18px;
+  object-fit:contain;
+  flex-shrink:0;
+  opacity:.65;
+}
+
+#cardPreview .meta-footer .meta-item:first-child{
+  flex:1 1 auto;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding-right:.35rem;
+  max-width:100%;
+}
+
+#cardPreview .meta-footer .meta-item:last-child{
+  flex:0 0 auto;
+  white-space:nowrap;
+  margin-left:0;
+}
+
+/* Meta superior (Home literal) */
+#cardPreview .meta-top{
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+
+  padding: .4rem 1.5rem;
+  border-top: 1px solid #c9c9c9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .4rem;
+
+  font-size: .9rem;
+  line-height: 1;
+  color: #444;
+  background: inherit;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 32px;
+}
+
+#cardPreview .meta-top img{
+  width:18px;
+  height:18px;
+  object-fit:contain;
+  flex-shrink:0;
+  opacity:.65;
+  display:block;
+}
+
+/* Overrides finales Home */
+#cardPreview .meta-top + .meta-footer{
+  border-top: 1px solid #c9c9c9;
+  padding-top: .12rem;
+}
+
+#cardPreview .meta-footer{
+  padding: .28rem 1.5rem .32rem;
+  min-height: 28px;
+}
+
+#cardPreview .meta-footer .meta-item{
+  min-height: 24px;
+}
+
+/* Mobile (igual Home) */
+@media (max-width: 480px){
+  #cardPreview .meta-footer{
+    flex-wrap: nowrap;
+    column-gap: .35rem;
+    font-size: .85rem;
+    padding: .25rem 1rem .35rem;
+
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  #cardPreview .meta-footer .meta-item{
+    gap: .4rem;
+    min-height: 24px;
+  }
+
+  #cardPreview .meta-footer .meta-item img{
+    width: 16px;
+    height: 16px;
+    opacity: .7;
+  }
+
+  #cardPreview .meta-top{
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+    padding: .28rem 1rem .34rem;
+    font-size: .85rem;
+    gap: .35rem;
+  }
+
+  #cardPreview .meta-top img{
+    width: 16px;
+    height: 16px;
+    opacity: .7;
+  }
+}
+
+/* =========================================================
+   Responsive general ABM
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .admin-grid { flex-direction: column; }
+  .panel--form { width: 100%; }
+  .col-id { width: 160px; }
+  .col-actions { width: 240px; }
+}
+
+@media (max-width: 560px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .row { grid-template-columns: 1fr; }
+  .col-actions { width: 210px; }
+
+  .curso-card { max-width: 100%; }
+}

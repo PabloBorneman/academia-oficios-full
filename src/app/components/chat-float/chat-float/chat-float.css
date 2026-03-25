@@ -1,0 +1,190 @@
+/* ════════════════════════════════════════════════════════════════
+   COMPONENTE · CHATBOT
+   Fondo azul fijo — sin cambio de color al pasar el mouse.
+   Sombra flotante igual al botón “subir” y leve realce en hover.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ───── Botón flotante que abre/cierra el chat ───── */
+.chat-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px; /* icono · texto */
+  background: #0e2f4b; /* azul institucional */
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 30px;
+  font: 600 0.9rem 'Poppins', sans-serif;
+  cursor: pointer;
+  z-index: 1000;
+
+  /* sombra + contorno naranja interno */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, .30),
+    0 0 0 2px var(--color-secundario) inset;
+  transition: box-shadow .3s ease-in-out;
+}
+
+/* Hover: solo intensifica la sombra; NO cambia el color de fondo */
+.chat-toggle-button:hover {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, .35),
+    0 0 0 2px var(--color-secundario) inset;
+}
+
+/* Icono casco dentro del botón */
+.chat-toggle-button img.chatbot-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* ───── Ventana de chat ───── */
+.chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  max-height: 500px;
+
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font: 14px 'Poppins', sans-serif;
+  z-index: 1000;
+
+  /* sombra + borde azul fino */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .2),
+              0 0 0 1px #0e2f4b;
+}
+
+/* Cabecera */
+.chat-header {
+  background: #0e2f4b;
+  color: #fff;
+  padding: 10px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* ───── Área mensajes ───── */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #f5f6fa;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Mensaje Usuario */
+.chat-messages .user {
+  align-self: flex-end;
+  color: #0e2f4b;
+  background: #dde4ec; /* burbuja tenue */
+  padding: 6px 10px;
+  border-radius: 14px 14px 2px 14px;
+  max-width: 85%;
+  white-space: pre-wrap;
+}
+
+/* Mensaje Bot */
+.chat-messages .bot {
+  align-self: flex-start;
+  color: #333;
+  background: #fff; /* contraste con fondo gris */
+  padding: 6px 10px;
+  border-radius: 14px 14px 14px 2px;
+  max-width: 85%;
+  white-space: pre-wrap;
+}
+
+/* Enlaces dentro del bot */
+.chat-messages .bot a {
+  color: #0e2f4b; /* azul institucional */
+  text-decoration: underline;
+}
+.chat-messages .bot a:hover {
+  text-decoration: none;
+}
+
+/* ───── Input + botón enviar ───── */
+.chat-input {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.chat-input input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.chat-input button {
+  padding: 6px 12px;
+  background: #0e2f4b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.chat-input button:hover {
+  filter: brightness(1.08);
+}
+
+/* ───── Tarjeta de bienvenida ───── */
+.chat-welcome-card {
+  background: #eef2f7;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+.chat-welcome-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.avatar-mini {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chat-welcome-card h4 {
+  margin: 0 0 .4rem;
+  font-size: 1.1rem;
+  color: #0e2f4b;
+}
+.chat-welcome-card ul {
+  margin: .5rem 0;
+  padding-left: 1.2rem;
+  font-size: .9rem;
+  color: #333;
+}
+.chat-welcome-card li {
+  margin-bottom: 4px;
+}
+
+.boton-entendido {
+  margin-top: .6rem;
+  background: #0e2f4b;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}

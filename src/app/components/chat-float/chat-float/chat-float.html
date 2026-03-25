@@ -1,0 +1,57 @@
+<!-- Botón flotante que abre / cierra el chat -->
+<div class="chat-toggle-button" (click)="toggleChat()" aria-controls="chatBox" [attr.aria-expanded]="chatVisible">
+  <img src="assets/img/avatar-chatbot-64.webp" alt="Chatbot Avatar" class="chatbot-icon" />
+  Asistente Virtual de Cursos
+</div>
+
+<!-- Ventana de chat -->
+<div class="chat-box" *ngIf="chatVisible" id="chatBox" role="dialog" aria-label="Asistente Virtual de Cursos">
+  <!-- Cabecera -->
+  <div class="chat-header">
+    <span>Asistente Virtual de Cursos</span>
+    <button class="chat-minimize-btn" (click)="toggleChat()" aria-label="Minimizar" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Tarjeta de bienvenida -->
+  <div class="chat-welcome-card" *ngIf="mostrarModal">
+    <div class="chat-welcome-header">
+      <div>
+        <h4>¡Hola! 👋</h4>
+        <p>Podés preguntarme cosas como:</p>
+        <ul>
+          <li>📅 ¿Cuándo empiezan los cursos?</li>
+          <li>📝 ¿Cómo me inscribo?</li>
+          <li>🎯 ¿Qué curso me recomiendan?</li>
+        </ul>
+        <button (click)="cerrarModal()" class="boton-entendido" type="button">Entiendo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historial de mensajes -->
+  <!-- OJO: usar #msgContainer (no #messages) para no chocar con el array messages -->
+  <div class="chat-messages" #msgContainer (click)="onMessageClick($event)">
+    <div
+      *ngFor="let msg of messages"
+      [ngClass]="{ user: msg.from === 'user', bot: msg.from === 'bot' }"
+      [innerHTML]="msg.from === 'bot' ? msg.html : msg.text">
+    </div>
+  </div>
+
+  <!-- Input + botón enviar -->
+  <div class="chat-input">
+    <input
+      [(ngModel)]="userMessage"
+      (keydown.enter)="sendMessage()"
+      placeholder="Escribí tu pregunta..."
+      aria-label="Escribí tu pregunta"
+      autocomplete="off"
+    />
+    <button (click)="sendMessage()" type="button">Enviar</button>
+  </div>
+</div>

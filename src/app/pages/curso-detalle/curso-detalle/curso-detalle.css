@@ -1,0 +1,252 @@
+/* ==========================================================
+   curso-detalle.component.css  (solo interior de la card mejorado)
+   ========================================================== */
+
+/* ===== Layout / base ===== */
+.container-detalle{
+  max-width:1140px;
+  margin:0.2rem auto; /* más compacto */
+  padding:1rem;
+  font-family:'Poppins',sans-serif;
+  color:var(--color-texto);
+}
+
+
+/* ===== Breadcrumb ===== */
+.btn-volver{
+  display:inline-flex; align-items:center; gap:8px;
+  background:#0c2d48; color:#fff;
+  padding:.6rem 1.5rem; font-size:1rem; font-weight:600;
+  border-radius:8px; text-decoration:none; margin-bottom:1rem;
+  transition:color .3s ease;
+}
+.btn-volver:hover,.btn-volver:active{ color:var(--color-secundario); }
+
+/* ===== Separador ===== */
+.separador{ border:none; border-top:2px solid #eee; margin:2rem 0; }
+
+/* ===== Banner (no tocar) ===== */
+.banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  background:var(--color-primario);
+  color:#fff;
+  padding:0.05rem 1.5rem; /* 🔽 mucho más compacto */
+  margin-bottom:2rem;
+  border-radius:8px;
+  flex-wrap:wrap;
+}
+
+.banner__img{ flex:0 0 340px; height:160px; display:flex; justify-content:center; align-items:center; }
+.banner__img img{ max-width:100%; max-height:100%; object-fit:contain; }
+.banner__texto{ flex:1 1 0; display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0; max-width:100%; }
+.banner__titulo{
+  font-size: clamp(1.4rem, 1vw + 1rem, 2.2rem);
+  font-weight:700;
+  margin:0 0 .4rem;
+  letter-spacing:-.015em;
+  line-height:1.35;
+}
+
+.banner__subtitulo{
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.3rem);
+  font-weight:500;
+  margin:0;
+  line-height:1.4;
+}
+.banner__texto .resaltado{ color:var(--color-secundario); font-weight:600; }
+
+/* ===================== CARD (exterior intacto) ===================== */
+.detalle-card{
+  position:relative;
+  padding:2rem;
+  border-radius:10px;
+  background:#e1e9f3;
+  border:1px solid rgba(0,0,0,.08);
+  border-left:5px solid var(--color-primario);
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+/* Título y texto principal */
+.detalle-titulo{
+  font-size:2.2rem;
+  line-height:1.25;
+  color:var(--color-primario);
+  margin: 2.5rem 0 .8rem; /* reducido: antes 3.5rem */
+}
+
+/* Cuando hay estado-label, mismo margen reducido */
+.estado-label + .detalle-titulo{
+  margin-top:2.5rem;
+}
+
+@media (max-width:640px){
+  .detalle-titulo{ margin-top:3rem; }
+  .estado-label + .detalle-titulo{ margin-top:3rem; }
+}
+
+.detalle-card p{ font-size:1.05rem; margin:1rem 0; line-height:1.65; }
+
+/* ===================== BLOQUES (paneles) ===================== */
+.detalle-bloque{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:12px;
+  padding:1rem 1.1rem;
+  margin:1rem 0 1.2rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.detalle-bloque h3{
+  margin:0 0 .6rem;
+  font-size:1.30rem; line-height:1.3;
+  position:relative; padding-left:.6rem;
+}
+.detalle-bloque h3::before{
+  content:''; position:absolute; left:0; top:.35rem;
+  width:4px; height:1.05rem; border-radius:3px; background:#0c2d48;
+}
+
+/* Listas dentro de paneles (🛠 bullets siempre dentro del recuadro) */
+.lista-detalle{ 
+  margin:.25rem 0 0;
+  padding-left:1.1rem;
+  list-style:disc;
+  list-style-position:outside; 
+}
+.lista-detalle li{ margin:.15rem 0; }
+.lista-detalle.compacta{ margin:.25rem 0 0; padding-left:1.1rem; }
+.lista-detalle.compacta li{ margin:.1rem 0; }
+
+/* Tipografía menor dentro de panel para descripciones */
+.detalle-bloque p{ margin:.4rem 0; }
+
+/* ===================== TILES (resumen de cursada) ===================== */
+.detalle-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:.9rem;
+  margin:.5rem 0 1.2rem;
+}
+.detalle-item{
+  grid-column:span 6;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:12px;
+  padding:.85rem 1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.detalle-item strong{ display:block; margin-bottom:.2rem; font-weight:700; }
+.detalle-item .resaltado-naranja{ color:var(--color-secundario); }
+
+/* fecha con ícono dentro de tile */
+.detalle-item.fecha-inicio,
+.detalle-item.fecha-fin,
+.detalle-item.inicio-insc,
+.detalle-item.fin-insc{
+  display:flex; align-items:center; gap:.5rem;
+}
+.detalle-item.fecha-inicio img,
+.detalle-item.fecha-fin img,
+.detalle-item.inicio-insc img,
+.detalle-item.fin-insc img{ width:22px; height:22px; object-fit:contain; }
+
+/* Forzar columnas y FILAS específicas en desktop (para que las cajas de inscripciones queden debajo de su par) */
+@media (min-width:993px){
+  /* fila 3: fechas de curso */
+  .detalle-item.fecha-inicio{ grid-column:1 / span 6;  grid-row:3; }
+  .detalle-item.fecha-fin   { grid-column:7 / span 6;  grid-row:3; }
+  /* fila 4: ventanas de inscripción */
+  .detalle-item.inicio-insc{ grid-column:1 / span 6;  grid-row:4; }
+  .detalle-item.fin-insc   { grid-column:7 / span 6;  grid-row:4; }
+}
+
+/* 🛠 listas dentro de tiles */
+.detalle-item ul{
+  margin:.25rem 0 0;
+  padding-left:1.1rem;
+  list-style:disc;
+  list-style-position:outside;
+}
+.detalle-item li{ margin:.15rem 0; }
+
+/* ===================== Chips ===================== */
+.chips{ display:flex; flex-wrap:wrap; gap:.45rem; }
+.chip{
+  display:inline-flex; align-items:center;
+  background:#e7f1fb; color:var(--color-primario);
+  padding:6px 12px; border-radius:999px;
+  font-size:.92rem; font-weight:700;
+}
+.chip.ok{ background:#e8f8ed; color:#137a2a; }
+
+/* Separación entre localidad en negrita y dirección */
+.detalle-bloque li strong{ margin-right:.35rem; }
+
+/* ===================== Bloque CUPOS (fila completa) ===================== */
+.bloque-cupos{
+  padding:.8rem 1rem;
+}
+.cupos-row{
+  display:flex; align-items:center; gap:.6rem;
+  font-size:1.02rem;
+}
+.cupos-row img{
+  width:22px; height:22px; object-fit:contain;
+}
+.cupos-row .cupos-numero{
+  font-weight:800;
+  margin-left:.2rem;
+}
+
+/* ===================== Botonera ===================== */
+.botones-curso{
+  display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.2rem;
+}
+.botones-curso button{
+  background:var(--color-primario); color:#fff;
+  padding:.6rem 1.4rem; font-size:1rem; border:0; border-radius:8px;
+  font-weight:600; cursor:pointer; transition:background .2s ease, transform .15s ease, box-shadow .15s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.botones-curso button:hover{ background:#093656; transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,0,0,.12); }
+
+/* ===================== Estado (no tocar estilos) ===================== */
+.estado-label{
+  position:absolute; top:.75rem; left:0;
+  padding:.5rem 1.2rem; font-size:1rem; font-weight:700; color:#fff;
+  border-top-right-radius:4px; border-bottom-right-radius:4px; text-transform:uppercase; letter-spacing:.5px; z-index:2;
+}
+.estado-inscripcion_abierta{ background:#2e7d32; }
+.estado-en_curso{ background:#E6603A; }
+.estado-finalizado{ background:#c62828; }
+.estado-proximo{ background:#fdd835; color:#5e5959; }
+
+/* ===================== Responsive ===================== */
+@media (max-width:992px){
+  .detalle-grid{ grid-template-columns:repeat(6,1fr); }
+  .detalle-item{ grid-column:span 6; }
+}
+@media (max-width:768px){
+  .banner{ flex-direction:column; text-align:center; }
+  .banner__img{ flex:0 0 200px; height:90px; }
+  .banner__titulo{ font-size:2rem; letter-spacing:0; }
+  .banner__subtitulo{ font-size:1.3rem; }
+  .botones-curso{ flex-direction:column; align-items:flex-start; }
+  .banner--institucional{ display:none !important; }
+  .btn-volver{ margin-bottom:.5rem; }
+}
+@media (max-width:640px){
+  .detalle-card{ padding:1.25rem; }
+  .detalle-grid{ grid-template-columns:repeat(2,1fr); gap:.6rem; }
+  .detalle-item{ grid-column:span 2; padding:.75rem .85rem; }
+}
+
+/* util */
+.resaltado-naranja{ color:var(--color-secundario); font-weight:700; }
+
+/* opcional ancho XL */
+@media (min-width:1440px){
+  .banner__img{ flex-basis:380px; height:180px; }
+}

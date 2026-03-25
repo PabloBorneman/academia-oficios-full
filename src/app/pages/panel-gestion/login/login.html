@@ -1,0 +1,35 @@
+<div class="login-wrap">
+  <h1>Panel de Gestión</h1>
+  <p class="sub">Ingresá con tu usuario ADMIN</p>
+
+  <form (ngSubmit)="submit()" #f="ngForm" class="card">
+    <label>
+      Usuario
+      <input
+        name="username"
+        [(ngModel)]="username"
+        autocomplete="username"
+        required
+        [disabled]="loading"
+      />
+    </label>
+
+    <label>
+      Contraseña
+      <input
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        autocomplete="current-password"
+        required
+        [disabled]="loading"
+      />
+    </label>
+
+    <button type="submit" [disabled]="loading || !f.valid">
+      {{ loading ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </form>
+</div>

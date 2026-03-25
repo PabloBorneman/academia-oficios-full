@@ -1,0 +1,114 @@
+/* ====================== FOOTER (anticlásico CLS) ====================== */
+.footer{
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  min-height: 280px;                 /* reserva base */
+  contain: layout paint;
+  display: flex;                      /* para contener top/bottom */
+  flex-direction: column;
+}
+@supports (content-visibility: auto) {
+  .footer { content-visibility: auto; contain-intrinsic-size: 900px; }
+}
+
+/* ── Franja decorativa ── */
+.footer-montanas{
+  width: 100%;
+  aspect-ratio: 3949 / 705;
+  overflow: hidden;
+  background: #fff;
+}
+.footer-montanas img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: bottom;
+  margin: 0;
+}
+@supports not (aspect-ratio: 1 / 1){
+  .footer-montanas{ position: relative; height: 0; padding-bottom: calc(122 / 1280 * 100%); }
+  .footer-montanas img{ position: absolute; inset: 0; }
+}
+
+/* ── Contenido ── */
+.footer-content{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  /* importante: que cada item estire a la altura de la fila */
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1.25rem 1rem 1rem;
+  text-align: center;
+  margin-block: auto;                 /* centra el bloque entre montañas y línea */
+}
+.footer-col{
+  min-width: 0;
+  /* centra vertical y horizontalmente el contenido de CADA columna */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;            /* ⬅ centra vertical */
+  align-items: center;                /* ⬅ centra horizontal */
+}
+.footer-col p{
+  margin: .25rem 0;
+  font-size: .95rem;
+  line-height: 1.35;
+}
+
+/* ── Logo ── */
+.logo-gobierno{
+  width: 280px;
+  height: auto;
+  aspect-ratio: 280 / 80;
+  margin: 0 auto;                     /* quitamos el margin-top que la bajaba */
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Redes ── */
+.social-icons{
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: .4rem;
+}
+.social-icons img{
+  width: 36px; height: 36px;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: transform .2s ease, opacity .2s ease, filter .2s ease;
+}
+.social-icons img:hover{ transform: scale(1.1); opacity: .85; }
+
+/* ── Línea inferior ── */
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.3);
+  padding: .7rem 1rem;
+  text-align: center;
+  font-size: .85rem;
+  min-height: 40px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px){
+  .footer-content{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px){
+  .footer-content{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .logo-gobierno{
+    width: 200px;
+    aspect-ratio: 280 / 80;
+    margin-top: .5rem;                /* mobile sigue igual */
+  }
+}
+
+/* ── Overrides ── */
+.footer .footer-montanas img{ margin: 0; }
