@@ -47,15 +47,17 @@ Thumbs.db
 
 # Backend / deploy
 mvp-unificado/node_modules/
-# Build del frontend: ignorar todo public salvo uploads de cursos
+mvp-unificado/.env
+
+# Build del frontend: ignorar todo public
 mvp-unificado/public/*
+
+# ...pero permitir uploads/cursos
 !mvp-unificado/public/uploads/
 mvp-unificado/public/uploads/*
 !mvp-unificado/public/uploads/cursos/
 mvp-unificado/public/uploads/cursos/*
 !mvp-unificado/public/uploads/cursos/*.webp
-mvp-unificado/.env
-mvp-unificado/uploads/
 
 # Builds locales extra
 dist/
