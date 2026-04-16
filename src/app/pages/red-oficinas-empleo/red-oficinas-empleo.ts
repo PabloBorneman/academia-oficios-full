@@ -10,5 +10,4 @@ import { RouterLink } from '@angular/router';
   styleUrl: './red-oficinas-empleo.css'
 })
 export class RedOficinasEmpleo {
-  videoUrl = 'https://www.youtube.com/embed/VIDEO_ID';
 }
