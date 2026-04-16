@@ -10,6 +10,14 @@ export const routes: Routes = [
   { path: 'curso/:id', component: CursoDetalle },
 
   {
+    path: 'red-oficinas-empleo',
+    loadComponent: () =>
+      import('./pages/red-oficinas-empleo/red-oficinas-empleo').then(
+        (m) => m.RedOficinasEmpleo,
+      ),
+  },
+
+  {
     path: 'panel-gestion',
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'login' },
