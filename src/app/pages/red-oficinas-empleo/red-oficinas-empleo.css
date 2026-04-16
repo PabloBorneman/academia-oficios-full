@@ -409,3 +409,29 @@
     padding-bottom:8px;
   }
 }
+
+@media (max-width: 768px){
+  .banner{
+    padding: .5rem;
+    min-height: auto;
+  }
+
+  .banner__texto{
+    display: none;
+  }
+
+  .banner__img{
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .banner__img img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
