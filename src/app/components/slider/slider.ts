@@ -42,7 +42,6 @@ export class Slider implements OnInit, OnDestroy {
 
   // ✅ Orden requerido: 5 → 4 → 1 → 2 → 3
   private portalImgsDesktop = [
-    'assets/img/portal/portal_5.webp',
     'assets/img/portal/portal_4.webp',
     'assets/img/portal/portal_1.webp',
     'assets/img/portal/portal_2.webp',
@@ -50,7 +49,6 @@ export class Slider implements OnInit, OnDestroy {
   ];
 
   private portalImgsMobile = [
-    'assets/img/portal/portal_celu_5.webp',
     'assets/img/portal/portal_celu_4.webp',
     'assets/img/portal/portal_celu_1.webp',
     'assets/img/portal/portal_celu_2.webp',
@@ -60,8 +58,7 @@ export class Slider implements OnInit, OnDestroy {
   // ✅ URLs alineadas al MISMO orden de arriba
   // portal_5 y portal_4 YA NO REDIRIGEN
   private portalUrls: Array<string | undefined> = [
-    undefined,                       // portal_5
-    undefined,                       // portal_4
+    'https://academiadeoficios.jujuy.gob.ar/red-oficinas-empleo',                       // portal_4
     'https://empleopi.jujuy.gob.ar', // portal_1
     undefined,                       // portal_2
     undefined,                       // portal_3
