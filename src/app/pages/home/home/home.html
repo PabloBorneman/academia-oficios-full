@@ -96,6 +96,27 @@
 
   <app-slider></app-slider>
 
+  <!-- Video institucional / presentación -->
+  <section class="video-youtube-section" aria-labelledby="video-youtube-titulo">
+    <div class="video-youtube-card">
+      <iframe
+        src="https://www.youtube.com/embed/CQ_b5WTb35A?rel=0"
+        title="Video institucional Academia de Oficios"
+        loading="lazy"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
   <section
     class="banner banner--chatbot"
     aria-labelledby="chatbot-banner-titulo"
@@ -249,8 +270,8 @@
             <span>
               {{ (curso.estado === 'proximo' || curso.estado ===
               'inscripcion_abierta' || curso.estado === 'ultimos_cupos') ?
-              'Apertura de inscripciones' : 'Cierre de inscripciones' }}:
-              {{ formatDDMMYYYY(meta.iso) }}
+              'Apertura de inscripciones' : 'Cierre de inscripciones' }}: {{
+              formatDDMMYYYY(meta.iso) }}
             </span>
           </div>
         </ng-container>
