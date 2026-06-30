@@ -45,14 +45,12 @@ export class Slider implements OnInit, OnDestroy {
     'assets/img/portal/portal_4.webp',
     'assets/img/portal/portal_1.webp',
     'assets/img/portal/portal_2.webp',
-    'assets/img/portal/portal_3.webp',
   ];
 
   private portalImgsMobile = [
     'assets/img/portal/portal_celu_4.webp',
     'assets/img/portal/portal_celu_1.webp',
     'assets/img/portal/portal_celu_2.webp',
-    'assets/img/portal/portal_celu_3.webp',
   ];
 
   // ✅ URLs alineadas al MISMO orden de arriba
