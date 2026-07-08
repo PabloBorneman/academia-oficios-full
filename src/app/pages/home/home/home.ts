@@ -20,6 +20,15 @@ type Estado =
 
 type Origen = '2024' | '2025' | '2026';
 
+type HomePortalBanner = {
+  imagenDesktop: string;
+  imagenMobile: string;
+  imagen: string;
+  url: string;
+  link: boolean;
+  ariaLabel: string;
+};
+
 // shape mínimo para 2026 (viene del JSON server-side)
 type Curso2026 = {
   id: string;
@@ -85,6 +94,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   eagerCount = 6;
 
+  // Responsive para el banner fijo del home
+  isMobile = false;
+
+  // Banner fijo que reemplaza el bloque del casquito en el home
+  homePortalBanner: HomePortalBanner = {
+    imagenDesktop: 'assets/img/portal/portal_3.webp',
+    imagenMobile: 'assets/img/portal/portal_celu_3.webp',
+    imagen: 'assets/img/portal/portal_3.webp',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdhejPH3I-xrOV0fpY8-VY6h1VVxQDyCGCJaSfosns3YDlozg/viewform?usp=send_form',
+    link: true,
+    ariaLabel: 'Abrir formulario de inscripción',
+  };
+
   private resizeObs!: ResizeObserver;
   private domObs?: MutationObserver;
 
@@ -104,6 +126,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       if (chatBtn) chatBtn.click();
     }, 200);
     requestAnimationFrame(() => this.throttledUpdateScrollBtnPos());
+  }
+
+  // ───────────────────────── banner fijo portal_3 ────────────────────────────
+
+  private checkScreenSize(): void {
+    this.isMobile = window.innerWidth < 1024;
+  }
+
+  private updateHomePortalBannerForViewport(): void {
+    this.homePortalBanner.imagen = this.isMobile
+      ? this.homePortalBanner.imagenMobile
+      : this.homePortalBanner.imagenDesktop;
+  }
+
+  openHomePortalForm(): void {
+    window.open(this.homePortalBanner.url, '_blank', 'noopener');
   }
 
   // ───────────────────────── helpers/throttle/settle ─────────────────────────
@@ -173,6 +211,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // ───────────────────────── lifecycle ───────────────────────────────────────
 
   ngOnInit(): void {
+    this.checkScreenSize();
+    this.updateHomePortalBannerForViewport();
     this.setYear('2026');
   }
 
@@ -183,6 +223,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   private boundOnResize = () => {
+    const prev = this.isMobile;
+
+    this.checkScreenSize();
+
+    if (prev !== this.isMobile) {
+      this.updateHomePortalBannerForViewport();
+    }
+
     this.throttledUpdateScrollBtnPos();
   };
 
@@ -227,12 +275,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ───────────────────────── fechas: normalización + formato ─────────────────
 
-  /**
-   * Normaliza a "YYYY-MM-DDTHH:mm"
-   * - "2026-02-18" -> "2026-02-18T00:00"
-   * - "2026-02-18T14:00:33" -> "2026-02-18T14:00"
-   * - "2026-02-18T14:00Z" -> "2026-02-18T14:00"
-   */
   private normalizeDateTimeLocal(value?: string | null): string | undefined {
     if (!value) return undefined;
     const v = String(value).trim();
@@ -252,11 +294,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return undefined;
   }
 
-  /**
-   * Formatea:
-   * - "YYYY-MM-DD" -> "dd/MM/yyyy"
-   * - "YYYY-MM-DDTHH:mm" -> "dd/MM/yyyy, HH:mm"
-   */
   formatDDMMYYYY(value?: string | null): string {
     if (!value) return '';
     const v = String(value).trim();
@@ -277,16 +314,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return ddmmyyyy;
   }
 
-  // Fecha ISO (date o datetime) -> timestamp local
   private parseIsoLocalDate(iso?: string | null): number {
     if (!iso) return NaN;
     const base = String(iso).trim().split('T')[0];
 
     const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(base);
     if (!m) return NaN;
-    const y = +m[1],
-      mm = +m[2] - 1,
-      d = +m[3];
+    const y = +m[1];
+    const mm = +m[2] - 1;
+    const d = +m[3];
+
     return new Date(y, mm, d, 0, 0, 0, 0).getTime();
   }
 
@@ -516,7 +553,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       origen: '2026',
       slug: c.slug,
       formulario: c.formulario ?? '',
-      cupos: typeof c.cupos === 'number' ? c.cupos : (c.cupos ?? null),
+      cupos: typeof c.cupos === 'number' ? c.cupos : c.cupos ?? null,
       inscripcion_inicio: this.normalizeDateTimeLocal(c.inscripcion_inicio) ?? undefined,
       inscripcion_fin: this.normalizeDateTimeLocal(c.inscripcion_fin) ?? undefined,
     };

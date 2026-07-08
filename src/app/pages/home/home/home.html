@@ -117,33 +117,54 @@
     </div>
   </section>
 
-  <section
-    class="banner banner--chatbot"
-    aria-labelledby="chatbot-banner-titulo"
-  >
-    <div class="banner__texto">
-      <h2 id="chatbot-banner-titulo" class="banner__titulo">
-        ¿Tenés dudas sobre los cursos?
-      </h2>
-      <p class="banner__subtitulo">
-        Hacé clic en el <span class="resaltado">casco amarillo</span> abajo a la
-        derecha.
-      </p>
-    </div>
+  <!-- 
+  ─────────────────────────────────────────────
+  BLOQUE CHATBOT ORIGINAL OCULTO POR AHORA
+  ─────────────────────────────────────────────
 
-    <div class="banner__img">
-      <img
-        src="assets/img/avatar-chatbot.webp"
-        alt=""
-        aria-hidden="true"
-        role="presentation"
-        width="1280"
-        height="922"
-        decoding="async"
-        fetchpriority="high"
-      />
-    </div>
-  </section>
+<section
+  class="banner banner--chatbot"
+  aria-labelledby="chatbot-banner-titulo"
+>
+  <div class="banner__texto">
+    <h2 id="chatbot-banner-titulo" class="banner__titulo">
+      ¿Tenés dudas sobre los cursos?
+    </h2>
+    <p class="banner__subtitulo">
+      Hacé clic en el <span class="resaltado">casco amarillo</span> abajo a la
+      derecha.
+    </p>
+  </div>
+
+  <div class="banner__img">
+    <img
+      src="assets/img/avatar-chatbot.webp"
+      alt=""
+      aria-hidden="true"
+      role="presentation"
+      width="1280"
+      height="922"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </div>
+</section>
+
+-->
+
+  <!-- Banner fijo portal_3 / portal_celu_3 con link al formulario -->
+  <a
+    class="home-portal-static"
+    [href]="homePortalBanner.url"
+    target="_blank"
+    rel="noopener"
+    [attr.aria-label]="homePortalBanner.ariaLabel"
+  >
+    <span
+      class="home-portal-static__img"
+      [style.background-image]="'url(' + homePortalBanner.imagen + ')'"
+    ></span>
+  </a>
 
   <!-- Título y filtro -->
   <div class="header-cursos">

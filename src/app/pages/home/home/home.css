@@ -996,3 +996,64 @@ body{
     max-width: 260px;
   }
 }
+
+/* ============================================================
+   BANNER FIJO HOME - portal_3 / portal_celu_3
+   ============================================================ */
+
+.home-portal-static {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0.5rem auto;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 320 / 73;
+  max-height: 80vh;
+  contain: layout paint;
+  text-decoration: none;
+}
+
+.home-portal-static__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: no-repeat center / cover;
+}
+
+@media (max-width: 1023px) {
+  .home-portal-static {
+    aspect-ratio: 16 / 13;
+    max-height: 82vh;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aviso-cursos-2026__card {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: .8rem;
+  }
+
+  .aviso-cursos-2026__titulo {
+    font-size: 1.7rem;
+  }
+
+  .aviso-cursos-2026__texto {
+    font-size: 1.05rem;
+  }
+
+  .aviso-cursos-2026__btn {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  
+}
