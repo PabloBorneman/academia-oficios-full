@@ -94,7 +94,21 @@
     </div>
   </div>
 
-  <app-slider></app-slider>
+  <!-- Banner fijo portal_3 / portal_celu_3 con link al formulario -->
+  <a
+    class="home-portal-static"
+    [href]="homePortalBanner.url"
+    target="_blank"
+    rel="noopener"
+    [attr.aria-label]="homePortalBanner.ariaLabel"
+  >
+    <span
+      class="home-portal-static__img"
+      [style.background-image]="'url(' + homePortalBanner.imagen + ')'"
+    ></span>
+  </a>
+
+  
 
   <!-- Video institucional / presentación -->
   <section class="video-youtube-section" aria-labelledby="video-youtube-titulo">
@@ -152,19 +166,7 @@
 
 -->
 
-  <!-- Banner fijo portal_3 / portal_celu_3 con link al formulario -->
-  <a
-    class="home-portal-static"
-    [href]="homePortalBanner.url"
-    target="_blank"
-    rel="noopener"
-    [attr.aria-label]="homePortalBanner.ariaLabel"
-  >
-    <span
-      class="home-portal-static__img"
-      [style.background-image]="'url(' + homePortalBanner.imagen + ')'"
-    ></span>
-  </a>
+  <app-slider></app-slider>
 
   <!-- Título y filtro -->
   <div class="header-cursos">
